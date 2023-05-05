@@ -6,7 +6,7 @@ import android.provider.BaseColumns
 
 class TabelaSapatilha(db: SQLiteDatabase):TabelaBD(db,NOME_TABELA) {
     override fun cria() {
-        db.execSQL("CREATE TABLE $NOME_TABELA ($CHAVE_TABELA,Modelo TEXT NOT NULL,Cor TEXT NOT NULL,Tamanho Integer NOT NULL,SerialNumber TEXT NOT NULL,id_marca INTEGER NOT NULL),FOREIGN KEY(id_marca) REFERENCES ${TabelaMarca.NOME_TABELA}(${BaseColumns._ID})")
+        db.execSQL("CREATE TABLE $NOME_TABELA ($CHAVE_TABELA,Modelo TEXT NOT NULL,Cor TEXT NOT NULL,Tamanho Integer NOT NULL,SerialNumber TEXT NOT NULL,id_marca INTEGER NOT NULL),FOREIGN KEY(id_marca) REFERENCES ${TabelaMarca.NOME_TABELA}(${BaseColumns._ID}) ON DELETE RESTRICT")
     }
     companion object{
         const val NOME_TABELA = "sapatilha"
