@@ -10,11 +10,11 @@ private const val VERSAO_BASE_DE_DADOS = 1
 class SapatilhasOpenHelper(
     context: Context?
 ) : SQLiteOpenHelper(context, NOME_BASE_DE_DADOS, null, VERSAO_BASE_DE_DADOS) {
-    override fun onCreate(p0: SQLiteDatabase?) {
-        TODO("Not yet implemented")
+    override fun onCreate(db: SQLiteDatabase?) {
+
     }
 
-    override fun onUpgrade(p0: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
+    override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
 
     }
 }
