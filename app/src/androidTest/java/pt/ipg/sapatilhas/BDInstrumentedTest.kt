@@ -5,11 +5,11 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 
 import org.junit.Test
 import org.junit.runner.RunWith
-
+import android.content.Context
 
 import org.junit.Assert.*
 import org.junit.Before
-import org.junit.runner.manipulation.Ordering.Context
+//import org.junit.runner.manipulation.Ordering.Context
 import pt.ipg.sapatilhas.Bd.SapatilhasOpenHelper
 
 /**
@@ -19,7 +19,7 @@ import pt.ipg.sapatilhas.Bd.SapatilhasOpenHelper
  */
 @RunWith(AndroidJUnit4::class)
 class BDInstrumentedTest {
-    private fun getAppContext(): android.content.Context =
+    private fun getAppContext(): Context =
         InstrumentationRegistry.getInstrumentation().targetContext
 
     @Before
