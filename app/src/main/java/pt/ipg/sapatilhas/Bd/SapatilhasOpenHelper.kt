@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper
 import pt.ipg.sapatilhas.TabelaMarca
 import pt.ipg.sapatilhas.TabelaSapatilha
 
-private const val NOME_BASE_DE_DADOS = "sapatilhas.db"
+
 private const val VERSAO_BASE_DE_DADOS = 1
 
 class SapatilhasOpenHelper(
@@ -20,5 +20,9 @@ class SapatilhasOpenHelper(
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
 
+    }
+
+    companion object {
+        val NOME_BASE_DE_DADOS = "sapatilhas.db"
     }
 }

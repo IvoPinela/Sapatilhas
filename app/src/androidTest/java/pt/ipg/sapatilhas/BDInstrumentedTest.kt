@@ -6,7 +6,9 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.junit.Test
 import org.junit.runner.RunWith
 
+
 import org.junit.Assert.*
+import org.junit.Before
 import org.junit.runner.manipulation.Ordering.Context
 import pt.ipg.sapatilhas.Bd.SapatilhasOpenHelper
 
@@ -17,8 +19,13 @@ import pt.ipg.sapatilhas.Bd.SapatilhasOpenHelper
  */
 @RunWith(AndroidJUnit4::class)
 class BDInstrumentedTest {
-    private fun getAppContext() =
+    private fun getAppContext(): android.content.Context =
         InstrumentationRegistry.getInstrumentation().targetContext
+
+    @Before
+    fun apagaBaseDados(){
+        getAppContext().deleteDatabase(SapatilhasOpenHelper.NOME_BASE_DE_DADOS)
+    }
     @Test
     fun consegueAbrirBaseDados() {
         val openHelper=SapatilhasOpenHelper(getAppContext())
