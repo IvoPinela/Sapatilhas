@@ -19,14 +19,16 @@ data class  Marca (
 
 companion object {
     fun fromCursor(cursor:Cursor): Marca{
+
         val posId=cursor.getColumnIndex(BaseColumns._ID)
         val posNome=cursor.getColumnIndex(TabelaMarca.Campo_Nome)
         val posSede=cursor.getColumnIndex(TabelaMarca.Campo_Sede)
-        val id= cursor.getLong(posId)
-        val Nome=cursor.getString(posNome)
-        val Sede=cursor.getString(posSede)
 
-        return Marca(Nome,Sede,id)
+        val id= cursor.getLong(posId)
+        val nome=cursor.getString(posNome)
+        val sede=cursor.getString(posSede)
+
+        return Marca(nome,sede,id)
         }
     }
 }

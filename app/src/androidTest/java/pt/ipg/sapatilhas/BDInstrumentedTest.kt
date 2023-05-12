@@ -9,12 +9,15 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.provider.BaseColumns
-import android.provider.ContactsContract.Intents.Insert
+
+//import android.provider.ContactsContract.Intents.Insert
 
 import org.junit.Assert.*
 import org.junit.Before
 //import org.junit.runner.manipulation.Ordering.Context
 import pt.ipg.sapatilhas.Bd.SapatilhasOpenHelper
+
+
 
 
 @RunWith(AndroidJUnit4::class)
@@ -39,30 +42,35 @@ class BDInstrumentedTest {
     fun consegueInserirMarcas(){
         val bd = getWritableDataBase()
         val marca=Marca("Nike","Lisboa")
-        TabelaMarca(bd).insere(marca.toContentValues())
-        assertNotEquals(-1,marca.id)
+        insertMarca(bd,marca)
     }
 
     @Test
     fun consegueInserirSapatilhas(){
         val bd = getWritableDataBase()
+
         val marca=Marca("Nike","Lisboa")
-        InsertMarca(bd, marca )
+
+        insertMarca(bd, marca )
+
         val sapatilha1=Sapatilha("Air force 1","Vermelho",44,"T231",marca.id)
-        InsertSapatilha(bd,sapatilha1)
+        insertSapatilha(bd,sapatilha1)
+
 
         val sapatilha2=Sapatilha("Air force 4","Vermelho",44,"T231",marca.id)
-        InsertSapatilha(bd,sapatilha2)
+        insertSapatilha(bd,sapatilha2)
+
+
 
     }
 
-    private fun InsertMarca(bd: SQLiteDatabase,marca:Marca) {
+    private fun insertMarca(bd: SQLiteDatabase,marca:Marca) {
 
         marca.id=TabelaMarca(bd).insere(marca.toContentValues())
         assertNotEquals(-1,marca.id)
     }
-    private fun InsertSapatilha(bd: SQLiteDatabase,sapatilha: Sapatilha) {
-        TabelaSapatilha(bd).insere(sapatilha.toContentValues())
+    private fun insertSapatilha(bd: SQLiteDatabase,sapatilha: Sapatilha) {
+        sapatilha.id=TabelaSapatilha(bd).insere(sapatilha.toContentValues())
         assertNotEquals(-1,sapatilha.id)
 
 
@@ -79,10 +87,10 @@ class BDInstrumentedTest {
         val bd= getWritableDataBase()
 
         val marcaPuma=Marca("Puma","Londres")
-        InsertMarca(bd,marcaPuma)
+        insertMarca(bd,marcaPuma)
 
         val marcaFila=Marca("Puma","Tokio")
-        InsertMarca(bd,marcaFila)
+        insertMarca(bd,marcaFila)
 
         val tabelaMarca = TabelaMarca(bd)
         val cursor: Cursor= tabelaMarca.consulta(
