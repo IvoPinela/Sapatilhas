@@ -16,11 +16,7 @@ import org.junit.Before
 //import org.junit.runner.manipulation.Ordering.Context
 import pt.ipg.sapatilhas.Bd.SapatilhasOpenHelper
 
-/**
- * Instrumented test, which will execute on an Android device.
- *
- * See [testing documentation](http://d.android.com/tools/testing).
- */
+
 @RunWith(AndroidJUnit4::class)
 class BDInstrumentedTest {
     private fun getAppContext(): Context =
