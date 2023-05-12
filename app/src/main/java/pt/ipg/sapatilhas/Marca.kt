@@ -10,8 +10,8 @@ data class  Marca (
         fun toContentValues(): ContentValues {
             val valores= ContentValues()
 
-            valores.put(TabelaSapatilha.Campo_N, Modelo)
-            valores.put(TabelaSapatilha.CAMPO_COR, Cor)
+            valores.put(TabelaMarca.Campo_Nome, nome)
+            valores.put(TabelaMarca.Campo_Sede, sede)
             return  valores
         }
 }

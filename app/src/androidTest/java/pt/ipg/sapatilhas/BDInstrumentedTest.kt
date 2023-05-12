@@ -42,7 +42,7 @@ class BDInstrumentedTest {
         val bd = getWritableDataBase()
         val marca=Marca("Nike","Lisboa")
         TabelaMarca(bd).insere(marca.toContentValues())
-        assertNotEquals(-1,id)
+        assertNotEquals(-1,marca.id)
     }
 
     @Test
@@ -70,7 +70,7 @@ class BDInstrumentedTest {
 
     }
 
-    private fun getWritableDataBase(): SQLiteDatabase? {
+    private fun getWritableDataBase(): SQLiteDatabase {
         val openHelper = SapatilhasOpenHelper(getAppContext())
         return openHelper.writableDatabase
 
