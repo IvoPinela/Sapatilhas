@@ -6,6 +6,8 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.junit.Test
 import org.junit.runner.RunWith
 import android.content.Context
+import android.database.sqlite.SQLiteDatabase
+import android.provider.ContactsContract.Intents.Insert
 
 import org.junit.Assert.*
 import org.junit.Before
@@ -34,6 +36,44 @@ class BDInstrumentedTest {
         // Context of the app under test.
         //val appContext = getAppContext()
         //assertEquals("pt.ipg.sapatilhas", appContext.packageName)
+    }
+    @Test
+    fun consegueInserirMarcas(){
+        val bd = getWritableDataBase()
+        val marca=Marca("Nike","Lisboa")
+        TabelaMarca(bd).insere(marca.toContentValues())
+        assertNotEquals(-1,id)
+    }
+
+    @Test
+    fun consegueInserirSapatilhas(){
+        val bd = getWritableDataBase()
+        val marca=Marca("Nike","Lisboa")
+        InsertMarca(bd, marca )
+        val sapatilha1=Sapatilha("Air force 1","Vermelho",44,"T231",marca.id)
+        InsertSapatilha(bd,sapatilha1)
+
+        val sapatilha2=Sapatilha("Air force 4","Vermelho",44,"T231",marca.id)
+        InsertSapatilha(bd,sapatilha2)
+
+    }
+
+    private fun InsertMarca(bd: SQLiteDatabase,marca:Marca) {
+
+        marca.id=TabelaMarca(bd).insere(marca.toContentValues())
+        assertNotEquals(-1,marca.id)
+    }
+    private fun InsertSapatilha(bd: SQLiteDatabase,sapatilha: Sapatilha) {
+        TabelaSapatilha(bd).insere(sapatilha.toContentValues())
+        assertNotEquals(-1,sapatilha.id)
+
+
+    }
+
+    private fun getWritableDataBase(): SQLiteDatabase? {
+        val openHelper = SapatilhasOpenHelper(getAppContext())
+        return openHelper.writableDatabase
+
     }
 
 
