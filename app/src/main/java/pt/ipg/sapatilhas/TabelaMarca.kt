@@ -11,5 +11,9 @@ class TabelaMarca(db:SQLiteDatabase):TabelaBD(db,"marca"){
         const val NOME_TABELA = "marca"
         const val Campo_Nome = "nome"
         const val Campo_Sede = "sede"
+
+        val CAMPOS= arrayOf(BaseColumns._ID, Campo_Nome, Campo_Sede)
+
+
     }
 }

@@ -6,7 +6,9 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.junit.Test
 import org.junit.runner.RunWith
 import android.content.Context
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
+import android.provider.BaseColumns
 import android.provider.ContactsContract.Intents.Insert
 
 import org.junit.Assert.*
@@ -74,6 +76,43 @@ class BDInstrumentedTest {
         val openHelper = SapatilhasOpenHelper(getAppContext())
         return openHelper.writableDatabase
 
+    }
+
+    @Test
+    fun consegueLerMarcas(){
+        val bd= getWritableDataBase()
+
+        val marcaPuma=Marca("Puma","Londres")
+        InsertMarca(bd,marcaPuma)
+
+        val marcaFila=Marca("Puma","Tokio")
+        InsertMarca(bd,marcaFila)
+
+        val tabelaMarca = TabelaMarca(bd)
+        val cursor: Cursor= tabelaMarca.consulta(
+            TabelaMarca.CAMPOS,
+            "${BaseColumns._ID}=?",
+            arrayOf(marcaPuma.id.toString()),
+            null,
+            null,
+            null
+            )
+        assert(cursor.moveToNext())
+        val marcaBD=Marca.fromCursor(cursor)
+
+        assertEquals(marcaPuma,marcaBD)
+
+        val cursorTodasMarcas=tabelaMarca.consulta(
+            TabelaMarca.CAMPOS,
+            null,
+            null,
+            null,
+            null,
+            TabelaMarca.Campo_Nome
+
+        )
+
+        assert(cursorTodasMarcas.count>1)
     }
 
 

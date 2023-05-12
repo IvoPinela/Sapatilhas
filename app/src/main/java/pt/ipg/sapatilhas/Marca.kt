@@ -1,5 +1,7 @@
 package pt.ipg.sapatilhas
 import android.content.ContentValues
+import android.database.Cursor
+import android.provider.BaseColumns
 
 
 data class  Marca (
@@ -14,4 +16,17 @@ data class  Marca (
             valores.put(TabelaMarca.Campo_Sede, sede)
             return  valores
         }
+
+companion object {
+    fun fromCursor(cursor:Cursor): Marca{
+        val posId=cursor.getColumnIndex(BaseColumns._ID)
+        val posNome=cursor.getColumnIndex(TabelaMarca.Campo_Nome)
+        val posSede=cursor.getColumnIndex(TabelaMarca.Campo_Sede)
+        val id= cursor.getLong(posId)
+        val Nome=cursor.getString(posNome)
+        val Sede=cursor.getString(posSede)
+
+        return Marca(Nome,Sede,id)
+        }
+    }
 }
