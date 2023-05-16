@@ -15,6 +15,7 @@ class TabelaSapatilha(db: SQLiteDatabase):TabelaBD(db,NOME_TABELA) {
         const val CAMPO_TAMANHO = "Tamanho"
         const val CAMPO_SERIALNUMBER = "SerialNumber"
         const val CAMPO_IDMARCA = "id_marca"
+        val CAMPOS= arrayOf(BaseColumns._ID,CAMPO_MODELO,CAMPO_COR,CAMPO_TAMANHO,CAMPO_SERIALNUMBER,CAMPO_IDMARCA)
 
     }
 }

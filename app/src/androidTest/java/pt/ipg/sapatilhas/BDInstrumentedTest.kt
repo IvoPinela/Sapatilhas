@@ -119,5 +119,42 @@ class BDInstrumentedTest {
         assert(cursorTodasMarcas.count>1)
     }
 
+    @Test
+    fun  consegueLerSapatilha(){
+        val bd= getWritableDataBase()
+
+        val marcaPuma=Marca("Puma","Londres")
+        insertMarca(bd,marcaPuma)
+
+        val sapatilha1=Sapatilha("Air Jordan 1","Branca",44,"AE456",marcaPuma.id)
+        insertSapatilha(bd,sapatilha1)
+
+        val sapatilha2=Sapatilha("Air Jordan 4","Azul",44,"AE453",marcaPuma.id)
+        insertSapatilha(bd,sapatilha2)
+
+        val tabelaSapatilha = TabelaSapatilha(bd)
+        val cursor: Cursor= tabelaSapatilha.consulta(
+            TabelaSapatilha.CAMPOS,
+            "${BaseColumns._ID}=?",
+            arrayOf(sapatilha1.id.toString()),
+            null,
+            null,
+            null
+        )
+        assert(cursor.moveToNext())
+        val sapatilhaBD=Sapatilha.fromCursor(cursor)
+
+        assertEquals(sapatilha1,sapatilhaBD)
+
+        val cursorTodasSapatilhas=tabelaSapatilha.consulta(
+            TabelaSapatilha.CAMPOS,
+            null,
+            null,
+            null,
+            null,
+            TabelaSapatilha.CAMPO_MODELO)
+        assert(cursorTodasSapatilhas.count>1)
+
+    }
 
 }

@@ -5,7 +5,7 @@ import android.provider.BaseColumns
 
 class TabelaMarca(db:SQLiteDatabase):TabelaBD(db,"marca"){
     override fun cria() {
-       db.execSQL("CREATE TABLE $NOME_TABELA ($CHAVE_TABELA,$Campo_Nome TEXT NOT NULL,Sede TEXT NOT NULL)")
+       db.execSQL("CREATE TABLE $NOME_TABELA ($CHAVE_TABELA,$Campo_Nome TEXT NOT NULL,$Campo_Sede TEXT NOT NULL)")
     }
     companion object{
         const val NOME_TABELA = "marca"
