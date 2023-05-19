@@ -21,8 +21,29 @@ class SapatilhaContentProvider:ContentProvider(){
         values: Array<out String>?,
         selection: String?,
         selectionArgs: Array<out String>?,
-        p4: String?
+        sortOrder: String?
     ): Cursor? {
+        TODO("Not yet implemented")
+    }
+
+
+
+    override fun getType(uri: Uri): String? {
+        TODO("Not yet implemented")
+    }
+
+    override fun insert(uri: Uri, values: ContentValues?): Uri? {
+        TODO("Not yet implemented")
+    }
+
+    override fun delete(uri: Uri, values: String?, selection: Array<out String>?): Int {
+        TODO("Not yet implemented")
+    }
+
+    override fun update(uri: Uri,
+                        values: ContentValues?,
+                        selection: String?,
+                        selectionArgs: Array<out String>?): Int {
         TODO("Not yet implemented")
     }
 
@@ -38,27 +59,10 @@ class SapatilhaContentProvider:ContentProvider(){
             addURI(AUTORIDADE,SAPATILHAS,URI_SAPATILHAS)
             /*
             content://pt.ipg.sapatilhas/marcas
-            
+
              */
         }
-        
-    }
 
-    override fun getType(uri: Uri): String? {
-        TODO("Not yet implemented")
     }
-
-    override fun insert(uri: Uri, values: ContentValues?): Uri? {
-        TODO("Not yet implemented")
-    }
-
-    override fun delete(uri: Uri, values: String?, selection: Array<out String>?): Int {
-        TODO("Not yet implemented")
-    }
-
-    override fun update(uri: Uri, values: ContentValues?, selection: String?, selectionArgs: Array<out String>?): Int {
-        TODO("Not yet implemented")
-    }
-    
 
 }
