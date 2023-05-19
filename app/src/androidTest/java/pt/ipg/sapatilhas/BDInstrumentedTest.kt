@@ -156,5 +156,88 @@ class BDInstrumentedTest {
         assert(cursorTodasSapatilhas.count>1)
 
     }
+    @Test
+    fun consegueAlterarMarca(){
+        val bd = getWritableDataBase()
+        val marca=Marca("Ardidas","Lisboa")
+        insertMarca(bd,marca)
+
+        marca.nome="Adidas"
+        marca.sede="Porto"
+
+        val registosAlterados=TabelaMarca(bd).altera(
+            marca.toContentValues(),
+            "${BaseColumns._ID}=?",
+            arrayOf(marca.id.toString()),)
+
+        assertEquals(1,registosAlterados)
+    }
+
+
+    @Test
+    fun consegueAlterarSapatilha(){
+        val bd = getWritableDataBase()
+
+        val marca3=Marca("Puma","Amesterdao")
+        insertMarca(bd,marca3)
+
+        val marca2=Marca("Nike","Madrid")
+        insertMarca(bd,marca2)
+
+        val sapatilha1=Sapatilha("Air Jordan 1","Branca",44,"AE456",marca3.id)
+        insertSapatilha(bd,sapatilha1)
+
+
+
+        sapatilha1.Modelo="Air Jordan 5"
+        sapatilha1.Cor="Amarelo e Branco"
+        sapatilha1.Tamanho=45
+        sapatilha1.SerialNumber="AE496"
+        sapatilha1.idMarca=marca2.id
+
+        val registosAlterados=TabelaSapatilha(bd).altera(
+            sapatilha1.toContentValues(),
+            "${BaseColumns._ID}=?",
+            arrayOf(sapatilha1.id.toString()),
+        )
+        //verificar em casa se todos os campos estão como uposto
+
+        assertEquals(1,registosAlterados)
+    }
+
+    @Test
+    fun  consegueApagarMarcas(){
+        val bd = getWritableDataBase()
+        val marca=Marca("Ardidas","Lisboa")
+        insertMarca(bd,marca)
+
+
+        val registosEliminados=TabelaMarca(bd).elimine(
+            "${BaseColumns._ID}=?",
+            arrayOf(marca.id.toString()),)
+
+        assertEquals(1,registosEliminados)
+    }
+
+
+    @Test
+    fun consegueApagarSapatilha(){
+        val bd = getWritableDataBase()
+
+        val marca3=Marca("Puma","Amesterdao")
+        insertMarca(bd,marca3)
+
+
+        val sapatilha1=Sapatilha("Air Jordan 1","Vermelho",44,"AE756",marca3.id)
+        insertSapatilha(bd,sapatilha1)
+
+
+        val registosEliminados=TabelaSapatilha(bd).elimine(
+            "${BaseColumns._ID}=?",
+            arrayOf(sapatilha1.id.toString()),
+        )
+
+        assertEquals(1,registosEliminados)
+    }
 
 }
