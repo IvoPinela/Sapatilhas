@@ -56,7 +56,16 @@ class SapatilhaContentProvider:ContentProvider(){
         }
 
     override fun getType(uri: Uri): String? {
-        TODO("Not yet implemented")
+        val endereco=uriMatcher().match(uri)
+
+        return when(endereco){
+            //"
+            URI_SAPATILHAS->"vnd.android.cursor.dir/$SAPATILHAS"
+            URI_SAPATILHAS_ID->"vnd.android.cursor.item/$SAPATILHAS"
+            URI_MARCAS->"vnd.android.cursor.dir/$MARCAS"
+            URI_MARCAS_ID->"vnd.android.cursor.item/$MARCAS"
+            else->null
+        }
     }
 
     override fun insert(uri: Uri, values: ContentValues?): Uri? {
