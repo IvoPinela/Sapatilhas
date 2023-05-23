@@ -81,10 +81,19 @@ class SapatilhaContentProvider:ContentProvider(){
     }
 
     override fun update(uri: Uri,
-                        projection: ContentValues?,
+                        values: ContentValues?,
                         selection: String?,
                         selectionArgs: Array<out String>?): Int {
-        TODO("Not yet implemented")
+        val bd=bdopenHelper!!.writableDatabase
+        val endereco=uriMatcher().match(uri)
+
+        val tabela=when(endereco) {
+            URI_MARCAS_ID -> TabelaMarca(bd)
+            URI_SAPATILHAS_ID -> TabelaSapatilha(bd)
+            else -> return 0 //zero linhas afetadas
+        }
+        val id= uri.lastPathSegment!!
+        return tabela.altera(values!!,"${ BaseColumns._ID}=?", arrayOf(id))
     }
 
     companion object{
