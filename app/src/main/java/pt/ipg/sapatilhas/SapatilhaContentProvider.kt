@@ -76,8 +76,17 @@ class SapatilhaContentProvider:ContentProvider(){
         return Uri.withAppendedPath(uri,id.toString())
     }
 
-    override fun delete(uri: Uri, projection: String?, selection: Array<out String>?): Int {
-        TODO("Not yet implemented")
+    override fun delete(uri: Uri, selection: String?, selectionArgs: Array<out String>?): Int {
+        val bd=bdopenHelper!!.writableDatabase
+        val endereco=uriMatcher().match(uri)
+
+        val tabela=when(endereco) {
+            URI_MARCAS_ID -> TabelaMarca(bd)
+            URI_SAPATILHAS_ID -> TabelaSapatilha(bd)
+            else -> return 0 //zero linhas afetadas
+        }
+        val id= uri.lastPathSegment!!
+        return tabela.elimine("${ BaseColumns._ID}=?", arrayOf(id))
     }
 
     override fun update(uri: Uri,
