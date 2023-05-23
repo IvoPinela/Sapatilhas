@@ -8,21 +8,21 @@
     <fragment
         android:id="@+id/MenuPrincipalFragment"
         android:name="pt.ipg.sapatilhas.MenuPrincipalFragment"
-        android:label="@string/first_fragment_label"
+        android:label="@string/MenuPrincipal_fragment_label"
         tools:layout="@layout/fragment_menu_principal">
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            android:id="@+id/action_MenuPrincipalFragment_to_SobreFragment"
             app:destination="@id/SobreFragment" />
     </fragment>
     <fragment
         android:id="@+id/SobreFragment"
         android:name="pt.ipg.sapatilhas.SobreFragment"
-        android:label="@string/second_fragment_label"
+        android:label="@string/sobre_fragment_label"
         tools:layout="@layout/fragment_sobre">
 
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
+            android:id="@+id/action_SobreFragment_to_MenuPrincipalFragment"
             app:destination="@id/MenuPrincipalFragment" />
     </fragment>
 </navigation>
