@@ -13,6 +13,7 @@ import pt.ipg.sapatilhas.databinding.FragmentMenuPrincipalBinding
 import pt.ipg.sapatilhas.databinding.FragmentSneakerListBinding
 
 
+private const val ID_LOADER_SAPATILHAS = 0
 
 /**
  * A simple [Fragment] subclass.
@@ -49,6 +50,9 @@ class SneakerListFragment : Fragment(),LoaderManager.LoaderCallbacks<Cursor>{
         val adapterSapatilhas=AdapterSapatilhas()
         binding.reciclerViewSapatilha.adapter=adapterSapatilhas
         binding.reciclerViewSapatilha.layoutManager=LinearLayoutManager(requireContext())
+
+        val loader=LoaderManager.getInstance(this)
+        loader.initLoader(ID_LOADER_SAPATILHAS,null,this)
 
     }
     companion object {
