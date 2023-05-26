@@ -14,6 +14,9 @@
         <action
             android:id="@+id/action_MenuPrincipalFragment_to_SobreFragment"
             app:destination="@id/SobreFragment" />
+        <action
+            android:id="@+id/action_MenuPrincipalFragment_to_SneakerListFragment"
+            app:destination="@id/SneakerListFragment" />
     </fragment>
     <fragment
         android:id="@+id/SobreFragment"
@@ -23,6 +26,15 @@
 
         <action
             android:id="@+id/action_SobreFragment_to_MenuPrincipalFragment"
+            app:destination="@id/MenuPrincipalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/SneakerListFragment"
+        android:name="pt.ipg.sapatilhas.SneakerListFragment"
+        android:label="@string/List_Sneaker_Labrl"
+        tools:layout="@layout/fragment_sneaker_list">
+        <action
+            android:id="@+id/action_SneakerListFragment_to_MenuPrincipalFragment"
             app:destination="@id/MenuPrincipalFragment" />
     </fragment>
 </navigation>
