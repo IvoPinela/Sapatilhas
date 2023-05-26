@@ -11,6 +11,7 @@ import androidx.loader.content.Loader
 import androidx.recyclerview.widget.LinearLayoutManager
 import pt.ipg.sapatilhas.databinding.FragmentMenuPrincipalBinding
 import pt.ipg.sapatilhas.databinding.FragmentSneakerListBinding
+import pt.ipg.sapatilhas.databinding.FragmentSobreBinding
 
 
 private const val ID_LOADER_SAPATILHAS = 0
@@ -40,8 +41,12 @@ class SneakerListFragment : Fragment(),LoaderManager.LoaderCallbacks<Cursor>{
         savedInstanceState: Bundle?
     ): View? {
 
-
-        return inflater.inflate(R.layout.fragment_sneaker_list, container, false)
+        _binding = FragmentSneakerListBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
