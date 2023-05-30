@@ -10,9 +10,7 @@ import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
 import androidx.recyclerview.widget.LinearLayoutManager
-import pt.ipg.sapatilhas.databinding.FragmentMenuPrincipalBinding
 import pt.ipg.sapatilhas.databinding.FragmentSneakerListBinding
-import pt.ipg.sapatilhas.databinding.FragmentSobreBinding
 
 
 private const val ID_LOADER_SAPATILHAS = 0
@@ -50,21 +48,18 @@ class SneakerListFragment : Fragment(),LoaderManager.LoaderCallbacks<Cursor>{
         _binding = null
     }
 
-    private val adapterSapatilhas= AdapterSapatilhas()
+    private var adapterSapatilhas: AdapterSapatilhas?=null
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
+        adapterSapatilhas= AdapterSapatilhas(this)
         binding.reciclerViewSapatilha.adapter=adapterSapatilhas
         binding.reciclerViewSapatilha.layoutManager=LinearLayoutManager(requireContext())
 
         val loader=LoaderManager.getInstance(this)
         loader.initLoader(ID_LOADER_SAPATILHAS,null,this)
-
-    }
-    companion object {
 
     }
 
@@ -81,11 +76,11 @@ class SneakerListFragment : Fragment(),LoaderManager.LoaderCallbacks<Cursor>{
     }
 
     override fun onLoaderReset(loader: Loader<Cursor>) {
-        adapterSapatilhas.cursor=null
+        adapterSapatilhas?.cursor=null
     }
 
     override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
-        adapterSapatilhas.cursor=data
+        adapterSapatilhas?.cursor =data
     }
 
 }

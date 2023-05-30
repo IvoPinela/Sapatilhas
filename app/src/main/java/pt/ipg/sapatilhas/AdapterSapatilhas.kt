@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 
 
-class AdapterSapatilhas: RecyclerView.Adapter<AdapterSapatilhas.ViewHolderSapatilhas>() {
+class AdapterSapatilhas(val fragment: SneakerListFragment) : RecyclerView.Adapter<AdapterSapatilhas.ViewHolderSapatilhas>() {
     var cursor:Cursor?=null
     set(value){
         field=value
@@ -18,7 +18,9 @@ class AdapterSapatilhas: RecyclerView.Adapter<AdapterSapatilhas.ViewHolderSapati
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderSapatilhas {
-        TODO("Not yet implemented")
+
+        return ViewHolderSapatilhas(fragment.layoutInflater.inflate(R.layout.item_sapatiha,parent,false)
+        )
     }
 
     override fun getItemCount(): Int {
