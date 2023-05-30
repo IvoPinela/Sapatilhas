@@ -13,8 +13,8 @@ class AdapterSapatilhas(val fragment: SneakerListFragment) : RecyclerView.Adapte
         field=value
         notifyDataSetChanged()
     }
-    inner class ViewHolderSapatilhas(itemView: View) : ViewHolder(itemView) {
-
+    inner class ViewHolderSapatilhas(contentor: View) : ViewHolder(contentor) {
+        internal var sapatilha: Sapatilha?=null
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderSapatilhas {
@@ -28,6 +28,8 @@ class AdapterSapatilhas(val fragment: SneakerListFragment) : RecyclerView.Adapte
     }
 
     override fun onBindViewHolder(holder: ViewHolderSapatilhas, position: Int) {
-        TODO("Not yet implemented")
+       cursor!!.move(position)
+        holder.sapatilha=Sapatilha.fromCursor(cursor!!)
+
     }
 }
