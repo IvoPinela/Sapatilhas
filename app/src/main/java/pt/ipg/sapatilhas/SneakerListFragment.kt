@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.loader.app.LoaderManager
+import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
 import androidx.recyclerview.widget.LinearLayoutManager
 import pt.ipg.sapatilhas.databinding.FragmentMenuPrincipalBinding
@@ -65,7 +66,15 @@ class SneakerListFragment : Fragment(),LoaderManager.LoaderCallbacks<Cursor>{
     }
 
     override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
-        TODO("Not yet implemented")
+
+        return CursorLoader(
+            requireContext(),
+            SapatilhaContentProvider.ENDERECO_SAPATILHA,
+            TabelaSapatilha.CAMPOS,
+            null,null,
+            TabelaSapatilha.CAMPO_MODELO
+
+            )
     }
 
     override fun onLoaderReset(loader: Loader<Cursor>) {
