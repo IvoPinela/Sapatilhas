@@ -27,7 +27,7 @@ class BDInstrumentedTest {
 
     @Before
     fun apagaBaseDados(){
-        getAppContext().deleteDatabase(SapatilhasOpenHelper.NOME_BASE_DE_DADOS)
+       // getAppContext().deleteDatabase(SapatilhasOpenHelper.NOME_BASE_DE_DADOS)
     }
     @Test
     fun consegueAbrirBaseDados() {
