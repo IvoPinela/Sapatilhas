@@ -118,13 +118,13 @@ class SapatilhaContentProvider:ContentProvider(){
         private const val AUTORIDADE="pt.ipg.sapatilhas"
         private const val MARCAS="marcas"
         private const val SAPATILHAS="sapatilhas"
-        val ENDERECO_SAPATILHA=Uri.withAppendedPath(ENDERECO_BASE,MARCAS)   ENDERECO_MARCA
+        private val ENDERECO_BASE=Uri.parse("content://${SapatilhaContentProvider.AUTORIDADE}")
+        val ENDERECO_SAPATILHA=Uri.withAppendedPath(ENDERECO_BASE, SapatilhaContentProvider.MARCAS)
         private const val URI_MARCAS=100
         private const val URI_MARCAS_ID=101
         private const val URI_SAPATILHAS=200
         private const val URI_SAPATILHAS_ID=201
-         val ENDERECO_MARCA=Uri.withAppendedPath(ENDERECO_BASE,MARCAS)
-        private val  ENDERECO_BASE=Uri.parse("content://$AUTORIDADE")
+        val ENDERECO_MARCA=Uri.withAppendedPath(ENDERECO_BASE, SapatilhaContentProvider.MARCAS)
         fun  uriMatcher()=UriMatcher(UriMatcher.NO_MATCH).apply {
             addURI(AUTORIDADE,MARCAS,URI_MARCAS)
             addURI(AUTORIDADE,"$MARCAS/#",URI_MARCAS_ID)
@@ -140,3 +140,4 @@ class SapatilhaContentProvider:ContentProvider(){
     }
 
 }
+

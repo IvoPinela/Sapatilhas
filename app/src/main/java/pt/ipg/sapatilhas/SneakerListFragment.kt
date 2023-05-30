@@ -50,10 +50,13 @@ class SneakerListFragment : Fragment(),LoaderManager.LoaderCallbacks<Cursor>{
         _binding = null
     }
 
+    private val adapterSapatilhas= AdapterSapatilhas()
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapterSapatilhas=AdapterSapatilhas()
+
         binding.reciclerViewSapatilha.adapter=adapterSapatilhas
         binding.reciclerViewSapatilha.layoutManager=LinearLayoutManager(requireContext())
 
@@ -78,11 +81,11 @@ class SneakerListFragment : Fragment(),LoaderManager.LoaderCallbacks<Cursor>{
     }
 
     override fun onLoaderReset(loader: Loader<Cursor>) {
-        TODO("Not yet implemented")
+        adapterSapatilhas.cursor=null
     }
 
     override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
-        TODO("Not yet implemented")
+        adapterSapatilhas.cursor=data
     }
 
 }
