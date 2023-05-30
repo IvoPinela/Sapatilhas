@@ -35,7 +35,8 @@ class AdapterSapatilhas(val fragment: SneakerListFragment) : RecyclerView.Adapte
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderSapatilhas {
 
-        return ViewHolderSapatilhas(fragment.layoutInflater.inflate(R.layout.item_sapatiha,parent,false)
+        return ViewHolderSapatilhas(
+            fragment.layoutInflater.inflate(R.layout.item_sapatiha,parent,false)
         )
     }
 
@@ -44,7 +45,7 @@ class AdapterSapatilhas(val fragment: SneakerListFragment) : RecyclerView.Adapte
     }
 
     override fun onBindViewHolder(holder: ViewHolderSapatilhas, position: Int) {
-       cursor!!.move(position)
+       cursor!!.moveToPosition(position)
         holder.sapatilha=Sapatilha.fromCursor(cursor!!)
 
     }

@@ -76,11 +76,11 @@ class SneakerListFragment : Fragment(),LoaderManager.LoaderCallbacks<Cursor>{
     }
 
     override fun onLoaderReset(loader: Loader<Cursor>) {
-        adapterSapatilhas?.cursor=null
+        adapterSapatilhas!!.cursor=null
     }
 
     override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
-        adapterSapatilhas?.cursor =data
+        adapterSapatilhas!!.cursor =data
     }
 
 }
