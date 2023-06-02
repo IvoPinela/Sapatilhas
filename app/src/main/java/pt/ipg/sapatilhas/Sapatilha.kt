@@ -9,7 +9,7 @@ data class Sapatilha(
     var Cor:String,
     var Tamanho:Int,
     var SerialNumber:String,
-    var idMarca: Long,
+    var marca: Marca,
     var id: Long=-1) {
 
     fun toContentValues(): ContentValues {
@@ -19,7 +19,7 @@ data class Sapatilha(
         valores.put(TabelaSapatilha.CAMPO_COR, Cor)
         valores.put(TabelaSapatilha.CAMPO_TAMANHO, Tamanho)
         valores.put(TabelaSapatilha.CAMPO_SERIALNUMBER, SerialNumber)
-        valores.put(TabelaSapatilha.CAMPO_IDMARCA,idMarca)
+        valores.put(TabelaSapatilha.CAMPO_IDMARCA,marca.id)
         return  valores
     }
     companion object {
@@ -31,6 +31,7 @@ data class Sapatilha(
             val posTamanho=cursor.getColumnIndex(TabelaSapatilha.CAMPO_TAMANHO)
             val posSerialNumber=cursor.getColumnIndex(TabelaSapatilha.CAMPO_SERIALNUMBER)
             val posMarcaFK=cursor.getColumnIndex(TabelaSapatilha.CAMPO_IDMARCA)
+            val posMarcaSede=cursor.getColumnIndex(TabelaMarca.Campo_Sede)
 
 
             val id= cursor.getLong(posId)
@@ -39,8 +40,9 @@ data class Sapatilha(
             val tamanho=cursor.getInt(posTamanho)
             val serialNumber=cursor.getString(posSerialNumber)
             val idMarca=cursor.getLong(posMarcaFK)
+            val marcaSede=cursor.getString(posMarcaSede)
 
-            return Sapatilha(modelo,cor,tamanho,serialNumber,idMarca,id)
+            return Sapatilha(modelo,cor,tamanho,serialNumber,Marca(idMarca,marcaSede),id)
         }
     }
 

@@ -53,11 +53,11 @@ class BDInstrumentedTest {
 
         insertMarca(bd, marca )
 
-        val sapatilha1=Sapatilha("Air force 1","Vermelho",44,"T231",marca.id)
+        val sapatilha1=Sapatilha("Air force 1","Vermelho",44,"T231", marca)
         insertSapatilha(bd,sapatilha1)
 
 
-        val sapatilha2=Sapatilha("Air force 4","Vermelho",44,"T231",marca.id)
+        val sapatilha2=Sapatilha("Air force 4","Vermelho",44,"T231",marca)
         insertSapatilha(bd,sapatilha2)
 
 
@@ -126,16 +126,16 @@ class BDInstrumentedTest {
         val marcaPuma=Marca("Puma","Londres")
         insertMarca(bd,marcaPuma)
 
-        val sapatilha1=Sapatilha("Air Jordan 1","Branca",44,"AE456",marcaPuma.id)
+        val sapatilha1=Sapatilha("Air Jordan 1","Branca",44,"AE456",marcaPuma)
         insertSapatilha(bd,sapatilha1)
 
-        val sapatilha2=Sapatilha("Air Jordan 4","Azul",44,"AE453",marcaPuma.id)
+        val sapatilha2=Sapatilha("Air Jordan 4","Azul",44,"AE453",marcaPuma)
         insertSapatilha(bd,sapatilha2)
 
         val tabelaSapatilha = TabelaSapatilha(bd)
         val cursor: Cursor= tabelaSapatilha.consulta(
             TabelaSapatilha.CAMPOS,
-            "${BaseColumns._ID}=?",
+            "${TabelaSapatilha.CAMPO_ID}=?",
             arrayOf(sapatilha1.id.toString()),
             null,
             null,
@@ -184,7 +184,7 @@ class BDInstrumentedTest {
         val marca2=Marca("Nike","Madrid")
         insertMarca(bd,marca2)
 
-        val sapatilha1=Sapatilha("Air Jordan 1","Branca",44,"AE456",marca3.id)
+        val sapatilha1=Sapatilha("Air Jordan 1","Branca",44,"AE456",marca3)
         insertSapatilha(bd,sapatilha1)
 
 
@@ -228,7 +228,7 @@ class BDInstrumentedTest {
         insertMarca(bd,marca3)
 
 
-        val sapatilha1=Sapatilha("Air Jordan 1","Vermelho",44,"AE756",marca3.id)
+        val sapatilha1=Sapatilha("Air Jordan 1","Vermelho",44,"AE756",marca3)
         insertSapatilha(bd,sapatilha1)
 
 

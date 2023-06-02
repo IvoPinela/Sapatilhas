@@ -4,9 +4,9 @@ import android.database.Cursor
 import android.provider.BaseColumns
 
 
-data class  Marca (
+data class  Marca(
     var nome: String,
-    var sede :String,
+    var sede:String,
     var id: Long=-1) {
 
         fun toContentValues(): ContentValues {

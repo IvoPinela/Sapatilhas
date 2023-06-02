@@ -1,5 +1,7 @@
 package pt.ipg.sapatilhas
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
+import android.database.sqlite.SQLiteQueryBuilder
 import android.provider.BaseColumns
 
 
@@ -15,7 +17,23 @@ class TabelaSapatilha(db: SQLiteDatabase):TabelaBD(db,NOME_TABELA) {
         const val CAMPO_TAMANHO = "Tamanho"
         const val CAMPO_SERIALNUMBER = "SerialNumber"
         const val CAMPO_IDMARCA = "id_marca"
-        val CAMPOS= arrayOf(BaseColumns._ID,CAMPO_MODELO,CAMPO_COR,CAMPO_TAMANHO,CAMPO_SERIALNUMBER,CAMPO_IDMARCA)
+        const val CAMPO_SEDE= TabelaMarca.Campo_Sede
+        const val CAMPO_ID="$NOME_TABELA.{${BaseColumns._ID}"
+        //select   sapatila._ID      scricao from inner join categoria
+        val CAMPOS= arrayOf(CAMPO_ID,CAMPO_MODELO,CAMPO_COR,CAMPO_TAMANHO,CAMPO_SERIALNUMBER,CAMPO_IDMARCA,CAMPO_SEDE)
 
     }
+    override  fun  consulta(
+        colunas: Array<String>,
+        selecao: String?,
+        argsSelecao: Array<String>?,
+        groupby: String?,
+        having: String?,
+        orderby: String?
+    ): Cursor {
+        val sql=SQLiteQueryBuilder()
+        sql.tables="$NOME_TABELA INNER JOIN ${TabelaMarca.NOME_TABELA} ON ${TabelaMarca.CAMPO_ID}=$CAMPO_IDMARCA"
+        return sql.query(db,colunas,selecao,argsSelecao,groupby,having,orderby)
+    }
+
 }
