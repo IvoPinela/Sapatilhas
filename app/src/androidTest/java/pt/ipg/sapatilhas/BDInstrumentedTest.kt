@@ -193,7 +193,7 @@ class BDInstrumentedTest {
         sapatilha1.Cor="Amarelo e Branco"
         sapatilha1.Tamanho=45
         sapatilha1.SerialNumber="AE496"
-        sapatilha1.idMarca=marca2.id
+        sapatilha1.marca=marca2
 
         val registosAlterados=TabelaSapatilha(bd).altera(
             sapatilha1.toContentValues(),
