@@ -34,7 +34,7 @@ class AdapterSapatilhas(val fragment: SneakerListFragment) : RecyclerView.Adapte
         set(value){
             field=value
             textViewModelo.text=sapatilha?.Modelo?:""
-            textViewMarca.text=sapatilha?.marca.toString()?:""
+            textViewMarca.text=sapatilha?.marca?.nome?:""
             textViewCor.text=sapatilha?.Cor?:""
             textViewTamanho.text=sapatilha?.Tamanho.toString()?:""
 

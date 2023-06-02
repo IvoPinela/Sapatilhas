@@ -27,7 +27,7 @@ class BDInstrumentedTest {
 
     @Before
     fun apagaBaseDados(){
-       // getAppContext().deleteDatabase(SapatilhasOpenHelper.NOME_BASE_DE_DADOS)
+        getAppContext().deleteDatabase(SapatilhasOpenHelper.NOME_BASE_DE_DADOS)
     }
     @Test
     fun consegueAbrirBaseDados() {
@@ -126,17 +126,18 @@ class BDInstrumentedTest {
         val marcaPuma=Marca("Puma","Londres")
         insertMarca(bd,marcaPuma)
 
-        val sapatilha1=Sapatilha("Air Jordan 1","Branca",44,"AE456",marcaPuma)
-        insertSapatilha(bd,sapatilha1)
+        val sapatilha9=Sapatilha("Air Jordan 1","Branca",44,"AE456",marcaPuma)
+        insertSapatilha(bd,sapatilha9)
 
         val sapatilha2=Sapatilha("Air Jordan 4","Azul",44,"AE453",marcaPuma)
         insertSapatilha(bd,sapatilha2)
 
         val tabelaSapatilha = TabelaSapatilha(bd)
+
         val cursor: Cursor= tabelaSapatilha.consulta(
             TabelaSapatilha.CAMPOS,
             "${TabelaSapatilha.CAMPO_ID}=?",
-            arrayOf(sapatilha1.id.toString()),
+            arrayOf(sapatilha9.id.toString()),
             null,
             null,
             null
@@ -144,7 +145,7 @@ class BDInstrumentedTest {
         assert(cursor.moveToNext())
         val sapatilhaBD=Sapatilha.fromCursor(cursor)
 
-        assertEquals(sapatilha1,sapatilhaBD)
+        assertEquals(sapatilha9,sapatilhaBD)
 
         val cursorTodasSapatilhas=tabelaSapatilha.consulta(
             TabelaSapatilha.CAMPOS,

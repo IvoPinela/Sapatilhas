@@ -1,5 +1,6 @@
 package pt.ipg.sapatilhas
 
+import android.annotation.SuppressLint
 import android.content.ContentProvider
 import android.content.ContentValues
 import android.content.UriMatcher
@@ -68,6 +69,7 @@ class SapatilhaContentProvider:ContentProvider(){
         }
     }
 
+    @SuppressLint("SuspiciousIndentation")
     override fun insert(uri: Uri, values: ContentValues?): Uri? {
         val bd=bdopenHelper!!.writableDatabase
 

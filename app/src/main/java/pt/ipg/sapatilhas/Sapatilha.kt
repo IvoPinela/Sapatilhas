@@ -31,18 +31,20 @@ data class Sapatilha(
             val posTamanho=cursor.getColumnIndex(TabelaSapatilha.CAMPO_TAMANHO)
             val posSerialNumber=cursor.getColumnIndex(TabelaSapatilha.CAMPO_SERIALNUMBER)
             val posMarcaFK=cursor.getColumnIndex(TabelaSapatilha.CAMPO_IDMARCA)
-            val posMarcaSede=cursor.getColumnIndex(TabelaMarca.Campo_Sede)
-
+            val posMarcaSede=cursor.getColumnIndex(TabelaSapatilha.CAMPO_SEDE)
+            val posNome=cursor.getColumnIndex(TabelaSapatilha.CAMPO_NOME)
 
             val id= cursor.getLong(posId)
             val modelo=cursor.getString(posModelo)
             val cor=cursor.getString(posCor)
             val tamanho=cursor.getInt(posTamanho)
             val serialNumber=cursor.getString(posSerialNumber)
+
             val idMarca=cursor.getLong(posMarcaFK)
             val marcaSede=cursor.getString(posMarcaSede)
+            val marcaNome=cursor.getString(posNome)
 
-            return Sapatilha(modelo,cor,tamanho,serialNumber,Marca(idMarca,marcaSede),id)
+            return Sapatilha(modelo,cor,tamanho,serialNumber,Marca(marcaNome,marcaSede,idMarca),id)
         }
     }
 
