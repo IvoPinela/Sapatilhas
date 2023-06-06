@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity() {
             is SneakerListFragment -> (fragment as SneakerListFragment).processaOpcaoMenu(item)
             else -> false
         }
-        return if (!opcaoProcessada) {
+        return if (opcaoProcessada) {
             true
         } else {
             super.onOptionsItemSelected(item)

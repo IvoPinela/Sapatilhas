@@ -3,23 +3,4 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NewSapatilhaFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="240dp"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="125dp">
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="hint"
-        tools:layout_editor_absoluteX="14dp"
-        tools:layout_editor_absoluteY="22dp" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    tools:context=".NewSapatilhaFragment"/>

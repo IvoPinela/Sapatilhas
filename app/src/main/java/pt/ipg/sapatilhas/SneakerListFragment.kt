@@ -30,6 +30,15 @@ class SneakerListFragment : Fragment(),LoaderManager.LoaderCallbacks<Cursor>{
 
     var sapatilhaSelecionado: Sapatilha?=null
 
+    set(value) {
+        field=value
+        val mostrarEliminarAlterar= (value != null)
+
+        val activity = activity as MainActivity
+        activity.mostraOpcaoMenu(R.id.action_Update, mostrarEliminarAlterar)
+        activity.mostraOpcaoMenu(R.id.action_Delete, mostrarEliminarAlterar)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -51,14 +60,7 @@ class SneakerListFragment : Fragment(),LoaderManager.LoaderCallbacks<Cursor>{
     }
 
     private var adapterSapatilhas: AdapterSapatilhas?=null
-    set(value){
-        field=value
 
-        val mostrarEliminarAlterar=(value!=null)
-        val  activity=activity as MainActivity
-        activity.mostraOpcaoMenu((R.id.action_Update),mostrarEliminarAlterar)
-        activity.mostraOpcaoMenu((R.id.action_Delete),mostrarEliminarAlterar)
-    }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -71,7 +73,7 @@ class SneakerListFragment : Fragment(),LoaderManager.LoaderCallbacks<Cursor>{
         val loader=LoaderManager.getInstance(this)
         loader.initLoader(ID_LOADER_SAPATILHAS,null,this)
 
-        val activity=(activity as MainActivity)
+        val activity= activity as MainActivity
         activity.fragment=this
         activity.idMenuAtual=R.menu.menu_lista_sapatilhas
 
