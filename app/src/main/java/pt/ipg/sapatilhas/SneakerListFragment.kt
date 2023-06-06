@@ -4,6 +4,7 @@ import android.database.Cursor
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.loader.app.LoaderManager
@@ -88,4 +89,33 @@ class SneakerListFragment : Fragment(),LoaderManager.LoaderCallbacks<Cursor>{
         adapterSapatilhas!!.cursor =data
     }
 
+    fun processaOpcaoMenu(item: MenuItem) : Boolean{
+        return  when(item.itemId) {
+            R.id.action_Add-> {
+                true
+                adicionarsapatilha()
+            }
+            R.id.action_Update->{
+                true
+                alterarsapatilha()
+            }
+            R.id.action_Delete->{
+                true
+                elimiarsapatilha()
+            }
+            else-> false
+        }
+    }
+
+    private fun elimiarsapatilha(): Boolean {
+
+    }
+
+    private fun alterarsapatilha(): Boolean {
+
+    }
+
+    private fun adicionarsapatilha(): Boolean {
+
+    }
 }

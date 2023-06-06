@@ -8,12 +8,12 @@
         android:title="@string/add"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/Action_Update"
+        android:id="@+id/action_Update"
         android:icon="@drawable/baseline_update_24"
         android:title="@string/update"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/action_Delite"
+        android:id="@+id/action_Delete"
         android:icon="@drawable/baseline_delete_24"
         android:title="@string/delete"
         app:showAsAction="ifRoom" />
