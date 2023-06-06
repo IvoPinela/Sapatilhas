@@ -12,6 +12,9 @@
         android:theme="@style/Theme.Sapatilhas"
         tools:targetApi="31">
         <activity
+            android:name=".NewSapatilhaFragment2"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
@@ -22,11 +25,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <provider
-            android:authorities="pt.ipg.sapatilhas"
             android:name=".SapatilhaContentProvider"
-            android:exported="false"
-            />
+            android:authorities="pt.ipg.sapatilhas"
+            android:exported="false" />
     </application>
 
 </manifest>

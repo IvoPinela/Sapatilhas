@@ -36,5 +36,17 @@
         <action
             android:id="@+id/action_SneakerListFragment_to_MenuPrincipalFragment"
             app:destination="@id/MenuPrincipalFragment" />
+        <action
+            android:id="@+id/action_SneakerListFragment_to_newSapatilhaFragment"
+            app:destination="@id/newSapatilhaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newSapatilhaFragment"
+        android:name="pt.ipg.sapatilhas.NewSapatilhaFragment"
+        android:label="@string/New_Sneaker_Label"
+        tools:layout="@layout/fragment_new_sapatilha">
+        <action
+            android:id="@+id/action_newSapatilhaFragment_to_SneakerListFragment"
+            app:destination="@id/SneakerListFragment" />
     </fragment>
 </navigation>
