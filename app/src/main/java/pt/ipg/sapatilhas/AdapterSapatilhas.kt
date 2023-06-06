@@ -41,6 +41,7 @@ class AdapterSapatilhas(val fragment: SneakerListFragment) : RecyclerView.Adapte
         }
         fun seleciona(){
             ViewHolderSelecionado=this
+            fragment.sapatilhaSelecionado=sapatilha
             itemView.setBackgroundResource(R.color.ItemSelecionado)
         }
         fun desSeleciona(){

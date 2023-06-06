@@ -27,6 +27,7 @@ class SneakerListFragment : Fragment(),LoaderManager.LoaderCallbacks<Cursor>{
     // onDestroyView.
     private val binding get() = _binding!!
 
+    var sapatilhaSelecionado: Sapatilha?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
