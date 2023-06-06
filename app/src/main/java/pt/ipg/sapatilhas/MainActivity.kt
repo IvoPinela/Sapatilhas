@@ -15,6 +15,7 @@ import pt.ipg.sapatilhas.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var menu: Menu
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
 
@@ -51,6 +52,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(idMenuAtual, menu)
+        this.menu=menu
         return true
     }
 
@@ -98,5 +100,9 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration)
                 || super.onSupportNavigateUp()
+    }
+
+    fun mostraOpcaoMenu(IdOpcao:Int, mostrar: Boolean){
+        menu.findItem(IdOpcao).setVisible(mostrar)
     }
 }

@@ -11,10 +11,12 @@
         android:id="@+id/action_Update"
         android:icon="@drawable/baseline_update_24"
         android:title="@string/update"
+        android:visible="false"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_Delete"
         android:icon="@drawable/baseline_delete_24"
         android:title="@string/delete"
+        android:visible="false"
         app:showAsAction="ifRoom" />
 </menu>

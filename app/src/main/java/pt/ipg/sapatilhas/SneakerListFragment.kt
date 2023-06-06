@@ -51,6 +51,14 @@ class SneakerListFragment : Fragment(),LoaderManager.LoaderCallbacks<Cursor>{
     }
 
     private var adapterSapatilhas: AdapterSapatilhas?=null
+    set(value){
+        field=value
+
+        val mostrarEliminarAlterar=(value!=null)
+        val  activity=activity as MainActivity
+        activity.mostraOpcaoMenu((R.id.action_Update),mostrarEliminarAlterar)
+        activity.mostraOpcaoMenu((R.id.action_Delete),mostrarEliminarAlterar)
+    }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -92,30 +100,33 @@ class SneakerListFragment : Fragment(),LoaderManager.LoaderCallbacks<Cursor>{
     fun processaOpcaoMenu(item: MenuItem) : Boolean{
         return  when(item.itemId) {
             R.id.action_Add-> {
+
+                adicionarSapatilha()
                 true
-                adicionarsapatilha()
             }
             R.id.action_Update->{
+
+                alterarSapatilha()
                 true
-                alterarsapatilha()
             }
             R.id.action_Delete->{
+
+                eliminarSapatilha()
                 true
-                elimiarsapatilha()
             }
             else-> false
         }
     }
 
-    private fun elimiarsapatilha(): Boolean {
+    private fun eliminarSapatilha() {
 
     }
 
-    private fun alterarsapatilha(): Boolean {
+    private fun alterarSapatilha(){
 
     }
 
-    private fun adicionarsapatilha(): Boolean {
+    private fun adicionarSapatilha(){
 
     }
 }
