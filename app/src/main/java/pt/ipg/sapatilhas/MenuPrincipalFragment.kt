@@ -40,6 +40,7 @@ class MenuPrincipalFragment : Fragment() {
             findNavController().navigate(R.id.action_MenuPrincipalFragment_to_SneakerListFragment)
         }
         val activity=(activity as MainActivity)
+        activity.fragment=this
         activity.idMenuAtual=R.menu.menu_main
     }
 
