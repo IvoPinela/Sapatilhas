@@ -111,6 +111,7 @@ class NewSapatilhaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
             return
         }
         Toast.makeText(context,R.string.AcertSapatilhaNew , Toast.LENGTH_SHORT).show()
+        voltaParaSneakerListFragment()
     }
 
     private fun voltaParaSneakerListFragment() {
@@ -120,7 +121,7 @@ class NewSapatilhaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
         return CursorLoader(
             requireContext(),
-            SapatilhaContentProvider.ENDERECO_SAPATILHA,
+            SapatilhaContentProvider.ENDERECO_MARCA,
             TabelaMarca.CAMPOS,
             null,
             null,
