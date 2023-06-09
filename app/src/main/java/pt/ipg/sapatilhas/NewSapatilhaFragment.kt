@@ -77,7 +77,7 @@ class NewSapatilhaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
             binding.EditTextModel.requestFocus()
             return
         }
-        val marca=binding.spinnerMarca.selectedItemId
+        val marcaid=binding.spinnerMarca.selectedItemId
 
         val cor=binding.EditTextColor.text.toString()
         if(cor.isBlank()){
@@ -100,7 +100,7 @@ class NewSapatilhaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
         }
         val sapatilha=Sapatilha(
             modelo,cor,tamanho.toInt(),SerialNumber,
-            Marca("?","?",marca),-1L
+            Marca("?","?",marcaid)
         )
        val  id= requireActivity().contentResolver.insert(
             SapatilhaContentProvider.ENDERECO_SAPATILHA,
@@ -110,7 +110,7 @@ class NewSapatilhaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
             binding.EditTextModel.error=getString(R.string.ErrorSapatilhaNew)
             return
         }
-      //  Toast.makeText(, , Toast.LENGTH_SHORT).show()
+        Toast.makeText(context,R.string.AcertSapatilhaNew , Toast.LENGTH_SHORT).show()
     }
 
     private fun voltaParaSneakerListFragment() {

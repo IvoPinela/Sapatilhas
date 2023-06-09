@@ -25,6 +25,7 @@
     <string name="RequestSize">Deve preencher cor</string>
     <string name="RequestSerialNumber">Deve preencher cor</string>
     <string name="ErrorSapatilhaNew">Não foi possível guardar o livro</string>
+    <string name="AcertSapatilhaNew">Foi possível guardar o livro</string>
 
 
 
