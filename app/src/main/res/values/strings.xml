@@ -20,7 +20,10 @@
     <string name="tamanho">Size</string>
     <string name="cor">Color</string>
     <string name="SerialNumber">Serial Number</string>
-    <string name="MarcaID">Marca ID</string>
+
+    <string name="Cancel">Cancel</string>
+    <string name="Save">Save</string>
+
 
     <string name="Text">This application consists of a database for a collection of sneakers, consisting of 2 tables namely: Sneaker and Brands that are related to each other.This work is carried out along the Advanced Programming classes.
 </string>
