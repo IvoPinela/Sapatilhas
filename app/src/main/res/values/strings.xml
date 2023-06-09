@@ -20,6 +20,14 @@
     <string name="tamanho">Size</string>
     <string name="cor">Color</string>
     <string name="SerialNumber">Serial Number</string>
+    <string name="RequestModel">Deve preencher modelo</string>
+    <string name="RequestColor">Deve preencher cor</string>
+    <string name="RequestSize">Deve preencher cor</string>
+    <string name="RequestSerialNumber">Deve preencher cor</string>
+    <string name="ErrorSapatilhaNew">Não foi possível guardar o livro</string>
+
+
+
 
     <string name="Cancel">Cancel</string>
     <string name="Save">Save</string>

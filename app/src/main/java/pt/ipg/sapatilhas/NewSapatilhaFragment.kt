@@ -8,7 +8,9 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SimpleCursorAdapter
+import android.widget.Toast
 import androidx.loader.app.LoaderManager
+import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
 import androidx.navigation.fragment.findNavController
 import pt.ipg.sapatilhas.databinding.FragmentNewSapatilhaBinding
@@ -60,7 +62,7 @@ class NewSapatilhaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
             }
             R.id.action_cancele->{
 
-                cancelar()
+                voltaParaSneakerListFragment()
                 true
             }
 
@@ -69,17 +71,56 @@ class NewSapatilhaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     }
 
     private fun guardar() {
-        TODO("Not yet implemented")
+        val modelo=binding.EditTextModel.text.toString()
+        if(modelo.isBlank()){
+            binding.EditTextModel.error=getString(R.string.RequestModel)
+            binding.EditTextModel.requestFocus()
+            return
+        }
+        val marca=binding.spinnerMarca.selectedItemId
+
+        val cor=binding.EditTextColor.text.toString()
+        if(cor.isBlank()){
+            binding.EditTextColor.error=getString(R.string.RequestColor)
+            binding.EditTextColor.requestFocus()
+            return
+        }
+        val tamanho=binding.EditTextSize.text.toString()
+        if(tamanho.isBlank()){
+            binding.EditTextSize.error=getString(R.string.RequestSize)
+            binding.EditTextSize.requestFocus()
+            return
+        }
+
+        val SerialNumber=binding.EditTextSerialNumber.text.toString()
+        if(SerialNumber.isBlank()){
+            binding.EditTextSerialNumber.error=getString(R.string.RequestSerialNumber)
+            binding.EditTextSerialNumber.requestFocus()
+            return
+        }
+        val sapatilha=Sapatilha(
+            modelo,cor,tamanho.toInt(),SerialNumber,
+            Marca("?","?",marca),-1L
+        )
+       val  id= requireActivity().contentResolver.insert(
+            SapatilhaContentProvider.ENDERECO_SAPATILHA,
+           sapatilha.toContentValues()
+        )
+        if(id==null){
+            binding.EditTextModel.error=getString(R.string.ErrorSapatilhaNew)
+            return
+        }
+      //  Toast.makeText(, , Toast.LENGTH_SHORT).show()
     }
 
-    private fun cancelar() {
+    private fun voltaParaSneakerListFragment() {
         findNavController().navigate(R.id.action_newSapatilhaFragment_to_SneakerListFragment)
     }
 
     override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
         return CursorLoader(
             requireContext(),
-            TabelaSapatilha.CAMPO_IDMARCA,
+            SapatilhaContentProvider.ENDERECO_SAPATILHA,
             TabelaMarca.CAMPOS,
             null,
             null,
