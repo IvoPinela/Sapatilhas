@@ -68,6 +68,7 @@ class MainActivity : AppCompatActivity() {
         val opcaoProcessada = when (fragment) {
             is SneakerListFragment -> (fragment as SneakerListFragment).processaOpcaoMenu(item)
             is NewSapatilhaFragment-> (fragment as NewSapatilhaFragment).processaOpcaoMenu(item)
+            is EliminarSapatilhasFragment -> (fragment as EliminarSapatilhasFragment).processaOpcaoMenu(item)
             else -> false
         }
         return if (opcaoProcessada) {

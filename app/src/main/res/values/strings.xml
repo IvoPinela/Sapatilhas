@@ -29,6 +29,8 @@
     <string name="AcertSapatilhaNew">Able to store sneake</string>
     <string name="Teste1">Teste1</string>
     <string name="labelEliminar">EliminarLabel</string>
+    <string name="Sapatilha_eliminado_com_sucesso">Sneaker successfully deleted</string>
+    <string name="erro_eliminar_Sapatilha">Error deleting sneaker</string>
 
 
 

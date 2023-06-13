@@ -1,5 +1,6 @@
 package pt.ipg.sapatilhas
 
+import android.net.Uri
 import android.os.Bundle
 import android.text.format.DateFormat
 import androidx.fragment.app.Fragment
@@ -7,7 +8,9 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import pt.ipg.sapatilhas.databinding.FragmentEliminarSapatilhasBinding
 
 
@@ -70,5 +73,14 @@ class EliminarSapatilhasFragment : Fragment() {
     }
 
     private fun eliminar() {
+        val enderecoSapatilha = Uri.withAppendedPath(SapatilhaContentProvider.ENDERECO_SAPATILHA, sapatilha.id.toString())
+        val numSapatilhEliminados = requireActivity().contentResolver.delete(enderecoSapatilha, null, null)
+
+        if (numSapatilhEliminados == 1) {
+            Toast.makeText(requireContext(), getString(R.string.Sapatilha_eliminado_com_sucesso), Toast.LENGTH_LONG).show()
+            voltaListaSapatilha()
+        } else {
+            Snackbar.make(binding.textViewModeloDelete, getString(R.string.erro_eliminar_Sapatilha), Snackbar.LENGTH_INDEFINITE)
+        }
     }
 }
