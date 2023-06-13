@@ -122,7 +122,8 @@ class SneakerListFragment : Fragment(),LoaderManager.LoaderCallbacks<Cursor>{
     }
 
     private fun eliminarSapatilha() {
-
+        val acao = SneakerListFragmentDirections.actionSneakerListFragmentToIliminarSapatilhasFragment(sapatilhaSelecionado!!)
+        findNavController().navigate(acao)
     }
 
     private fun alterarSapatilha(){

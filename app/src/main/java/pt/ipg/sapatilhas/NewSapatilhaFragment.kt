@@ -55,7 +55,7 @@ class NewSapatilhaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     }
     fun processaOpcaoMenu(item: MenuItem) : Boolean{
         return  when(item.itemId) {
-            R.id.action_save-> {
+            R.id.action_Delite-> {
 
                 guardar()
                 true

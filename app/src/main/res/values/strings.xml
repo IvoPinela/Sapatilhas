@@ -16,6 +16,7 @@
     <string name="update">Update</string>
     <string name="New_Sneaker_Label">New Sneaker</string>
     <string name="AddSneaker">Add Sneaker</string>
+    <string name="UpdateSneaker">Update Sneaker</string>
     <string name="modelo">Model</string>
     <string name="tamanho">Size</string>
     <string name="cor">Color</string>
@@ -27,7 +28,7 @@
     <string name="ErrorSapatilhaNew">Unable to store sneaker</string>
     <string name="AcertSapatilhaNew">Able to store sneake</string>
     <string name="Teste1">Teste1</string>
-
+    <string name="labelEliminar">EliminarLabel</string>
 
 
 

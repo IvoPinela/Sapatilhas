@@ -10,7 +10,7 @@ data class Sapatilha(
     var Tamanho:Int,
     var SerialNumber:String,
     var marca: Marca,
-    var id: Long=-1) {
+    var id: Long=-1):java.io.Serializable {
 
     fun toContentValues(): ContentValues {
         val valores=ContentValues()
