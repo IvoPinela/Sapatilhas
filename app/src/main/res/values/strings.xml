@@ -31,6 +31,8 @@
     <string name="labelEliminar">EliminarLabel</string>
     <string name="Sapatilha_eliminado_com_sucesso">Sneaker successfully deleted</string>
     <string name="erro_eliminar_Sapatilha">Error deleting sneaker</string>
+    <string name="Sapatilha_alteradas_com_sucesso">Sneaker successfully altere</string>
+    <string name="erro_alteradas_Sapatilha">Error altere sneaker</string>
 
 
 

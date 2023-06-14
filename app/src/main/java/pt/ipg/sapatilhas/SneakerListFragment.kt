@@ -1,5 +1,6 @@
 package pt.ipg.sapatilhas
 
+import android.annotation.SuppressLint
 import android.database.Cursor
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -23,6 +24,7 @@ private const val ID_LOADER_SAPATILHAS = 0
  * create an instance of this fragment.
  */
 class SneakerListFragment : Fragment(),LoaderManager.LoaderCallbacks<Cursor>{
+
     private var _binding: FragmentSneakerListBinding? = null
 
     // This property is only valid between onCreateView and
@@ -127,10 +129,14 @@ class SneakerListFragment : Fragment(),LoaderManager.LoaderCallbacks<Cursor>{
     }
 
     private fun alterarSapatilha(){
-
+        val acao = SneakerListFragmentDirections.actionSneakerListFragmentToNewSapatilhaFragment(sapatilhaSelecionado!!)
+        findNavController().navigate(acao)
     }
 
+
+    @SuppressLint("SuspiciousIndentation")
     private fun adicionarSapatilha(){
-    findNavController().navigate((R.id.action_SneakerListFragment_to_newSapatilhaFragment))
+    val acao = SneakerListFragmentDirections.actionSneakerListFragmentToNewSapatilhaFragment(null)
+        findNavController().navigate(acao)
     }
 }

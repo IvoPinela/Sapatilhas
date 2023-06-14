@@ -39,9 +39,7 @@
         <action
             android:id="@+id/action_SneakerListFragment_to_newSapatilhaFragment"
             app:destination="@id/newSapatilhaFragment" />
-        <action
-            android:id="@+id/action_SneakerListFragment_to_updateSapatilhaFragment"
-            app:destination="@id/updateSapatilhaFragment" />
+
         <action
             android:id="@+id/action_SneakerListFragment_to_iliminarSapatilhasFragment"
             app:destination="@id/EliminarSapatilhasFragment" />
@@ -54,16 +52,12 @@
         <action
             android:id="@+id/action_newSapatilhaFragment_to_SneakerListFragment"
             app:destination="@id/SneakerListFragment" />
+        <argument
+            android:name="sapatilha"
+            app:argType="pt.ipg.sapatilhas.Sapatilha"
+            app:nullable="true" />
     </fragment>
-    <fragment
-        android:id="@+id/updateSapatilhaFragment"
-        android:name="pt.ipg.sapatilhas.UpdateSapatilhaFragment"
-        android:label="fragment_update_sapatilha"
-        tools:layout="@layout/fragment_update_sapatilha" >
-        <action
-            android:id="@+id/action_updateSapatilhaFragment_to_SneakerListFragment"
-            app:destination="@id/SneakerListFragment" />
-    </fragment>
+
     <fragment
         android:id="@+id/EliminarSapatilhasFragment"
         android:name="pt.ipg.sapatilhas.EliminarSapatilhasFragment"

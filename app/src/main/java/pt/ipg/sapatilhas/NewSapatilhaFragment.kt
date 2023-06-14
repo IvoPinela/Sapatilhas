@@ -1,7 +1,9 @@
 package pt.ipg.sapatilhas
 
 import android.database.Cursor
+import android.net.Uri
 import android.os.Bundle
+import android.text.format.DateFormat
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -19,6 +21,7 @@ import pt.ipg.sapatilhas.databinding.FragmentNewSapatilhaBinding
 private const val ID_LOADER_MARCA = 0
 
 class NewSapatilhaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
+    private var sapatilha: Sapatilha?= null
     private var _binding: FragmentNewSapatilhaBinding? = null
 
     // This property is only valid between onCreateView and
@@ -47,6 +50,18 @@ class NewSapatilhaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
         val activity=(activity as MainActivity)
         activity.fragment=this
         activity.idMenuAtual=R.menu.menu_guardar_cancelar
+
+        val sapatilha = NewSapatilhaFragmentArgs.fromBundle(requireArguments()).sapatilha
+
+        if (sapatilha != null) {
+            binding.EditTextModel.setText(sapatilha.Modelo)
+            binding.EditTextColor.setText(sapatilha.Cor)
+            binding.EditTextSize.setText(sapatilha.Tamanho.toString())
+            binding.EditTextSerialNumber.setText(sapatilha.SerialNumber)
+
+        }
+
+        this.sapatilha = sapatilha
     }
 
     override fun onDestroyView() {
@@ -98,10 +113,42 @@ class NewSapatilhaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
             binding.EditTextSerialNumber.requestFocus()
             return
         }
-        val sapatilha=Sapatilha(
-            modelo,cor,tamanho.toInt(),SerialNumber,
-            Marca("?","?",marcaid)
-        )
+        if (sapatilha == null) {
+            val sapatilha = Sapatilha(
+                modelo,
+                cor,
+                tamanho.toInt(),
+                SerialNumber,
+                Marca("?", "?",marcaid),
+            )
+
+            insereSapatilha(sapatilha)
+        } else {
+            val sapatilha = sapatilha!!
+            sapatilha.Modelo = modelo
+            sapatilha.Cor=cor
+            sapatilha.Tamanho=tamanho.toInt()
+            sapatilha.SerialNumber=SerialNumber
+            sapatilha.marca = Marca("?","", marcaid)
+            alteraSapatilha(sapatilha)
+        }
+    }
+
+    private fun alteraSapatilha(sapatilha: Sapatilha) {
+        val enderecoSapatilha= Uri.withAppendedPath(SapatilhaContentProvider.ENDERECO_SAPATILHA, sapatilha.id.toString())
+        val SapatilhaAlterados = requireActivity().contentResolver.update(enderecoSapatilha, sapatilha.toContentValues(), null, null)
+
+        if (SapatilhaAlterados == 1) {
+            Toast.makeText(requireContext(), R.string.Sapatilha_alteradas_com_sucesso, Toast.LENGTH_LONG).show()
+            voltaParaSneakerListFragment()
+        } else {
+            binding.EditTextModel.error = getString(R.string.erro_alteradas_Sapatilha)
+        }
+    }
+
+    private fun insereSapatilha(
+        sapatilha: Sapatilha
+    ) {
        val  id= requireActivity().contentResolver.insert(
             SapatilhaContentProvider.ENDERECO_SAPATILHA,
            sapatilha.toContentValues()
@@ -147,6 +194,20 @@ class NewSapatilhaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
 
     override fun onLoaderReset(loader: Loader<Cursor>) {
         binding.spinnerMarca.adapter=null
+    }
+
+    private fun mostraCategoriaSelecionadaSpinner() {
+        if (sapatilha == null) return
+
+        val idMarca = sapatilha!!.marca.id
+
+        val ultimaMarca = binding.spinnerMarca.count - 1
+        for (i in 0..ultimaMarca) {
+            if (idMarca == binding.spinnerMarca.getItemIdAtPosition(i)) {
+                binding.spinnerMarca.setSelection(i)
+                return
+            }
+        }
     }
 
 
