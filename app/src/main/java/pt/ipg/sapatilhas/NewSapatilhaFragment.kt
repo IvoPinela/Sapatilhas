@@ -10,6 +10,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SimpleCursorAdapter
+import android.widget.TextView
 import android.widget.Toast
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
@@ -54,11 +55,18 @@ class NewSapatilhaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
         val sapatilha = NewSapatilhaFragmentArgs.fromBundle(requireArguments()).sapatilha
 
         if (sapatilha != null) {
+            activity.atualizaTitulo(R.string.editar_sapatilha_label)
+            binding.textViewAlterarNovo.setText(R.string.editar_sapatilha_label)
+
             binding.EditTextModel.setText(sapatilha.Modelo)
             binding.EditTextColor.setText(sapatilha.Cor)
             binding.EditTextSize.setText(sapatilha.Tamanho.toString())
             binding.EditTextSerialNumber.setText(sapatilha.SerialNumber)
 
+        }else {
+            activity.atualizaTitulo(R.string.New_Sneaker_Label)
+
+            binding.textViewAlterarNovo.setText(R.string.New_Sneaker_Label)
         }
 
         this.sapatilha = sapatilha

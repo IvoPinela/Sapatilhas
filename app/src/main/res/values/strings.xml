@@ -34,6 +34,8 @@
     <string name="Sapatilha_alteradas_com_sucesso">Sneaker successfully altere</string>
     <string name="erro_alteradas_Sapatilha">Error altere sneaker</string>
 
+    <string name="editar_sapatilha_label">Altere Sneaker</string>
+
 
 
     <string name="Cancel">Cancel</string>
