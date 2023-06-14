@@ -61,8 +61,8 @@
     <fragment
         android:id="@+id/EliminarSapatilhasFragment"
         android:name="pt.ipg.sapatilhas.EliminarSapatilhasFragment"
-        android:label="fragment_iliminar_sapatilhas"
-        tools:layout="@layout/fragment_eliminar_sapatilhas" >
+        android:label="@string/Eliminar_sapatilha_label"
+        tools:layout="@layout/fragment_eliminar_sapatilhas">
         <action
             android:id="@+id/action_iliminarSapatilhasFragment_to_SneakerListFragment"
             app:destination="@id/SneakerListFragment" />

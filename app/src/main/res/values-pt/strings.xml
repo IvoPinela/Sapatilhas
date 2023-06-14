@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Sapatilhas</string>
+    <string name="action_settings">Editar</string>
+    <string name="MenuPrincipal_fragment_label">Menu Principal</string>
+
+    <string name="sobre_fragment_label">Acerca...</string>
+
+    <string name="next">Proximo</string>
+
+    <string name="sneaker">Sapatilha</string>
+
+    <string name="Brand">Marca</string>
+
+    <string name="About">Acerca</string>
+
+    <string name="Search">Procurar</string>
+
+    <string name="previous">Anterior</string>
+    <string name="back">Voltar para o Menu</string>
+
+    <string name="add">Adicionar</string>
+    <string name="delete">Eliminar</string>
+
+    <string name="update">Alterar</string>
+
+    <string name="New_Sneaker_Label">Nova sapatilha</string>
+    <string name="AddSneaker">Adicionar Sapatilha</string>
+
+    <string name="UpdateSneaker">Alterar Sapartilha</string>
+    <string name="modelo">Modelo</string>
+
+    <string name="tamanho">Tamanho</string>
+
+    <string name="cor">Cor</string>
+
+    <string name="SerialNumber">Serial Number</string>
+    <string name="RequestModel">necessário empreencher o campo modelo</string>
+    <string name="RequestColor">necessário empreencher o campo cor</string>
+    <string name="RequestSize">necessário empreencher o campo Tamanho</string>
+    <string name="RequestSerialNumber">necessário empreencher o campo Serial Number</string>
+    <string name="ErrorSapatilhaNew">Não foi possível armazenar a sapatilha</string>
+
+    <string name="AcertSapatilhaNew">Foi possível armazenar a sapatilha</string>
+
+    <string name="Teste1">Teste1</string>
+
+    <string name="labelEliminar">Eliminar Sapatilha</string>
+
+    <string name="Sapatilha_eliminado_com_sucesso">Sapatilha eliminada com sucesso</string>
+    <string name="erro_eliminar_Sapatilha">Erro ao eliminar a sapatilha</string>
+    <string name="Sapatilha_alteradas_com_sucesso">Sapatilha alterada com sucesso</string>
+    <string name="erro_alteradas_Sapatilha">Erro ao alterar sapatilha</string>
+
+    <string name="Cancel">Cancelar</string>
+    <string name="Save">Salvar</string>
+
+    <string name="Text">Esta aplicação consiste numa base de dados para uma coleção de sapatilhas, composta por 2 tabelas nomeadamente: Sapatilhas e Marcas que se relacionam entre si. Este trabalho é realizado ao longo das aulas de Programação Avançada.</string>
+    <string name="madeby">Reaolizado por:  Ivo Rafael Figueiredo Pinela (1706234)</string>
+    <string name="lorem_ipsum">1</string>
+    <string name="hello_blank_fragment">hello_blank_fragment</string>
+    <string name="List_Sneaker_Labrl">Sapatilha</string>
+
+    <string name="editar_sapatilha_label">Alterar Sapatilha</string>
+    <string name="Eliminar_sapatilha_label">Eliminar Sapatilha</string>
+</resources>
