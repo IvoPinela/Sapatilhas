@@ -46,7 +46,7 @@ class NewSapatilhaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
 
 
         val loader= LoaderManager.getInstance(this)
-        loader.initLoader(0,null,this)
+        loader.initLoader(ID_LOADER_MARCA,null,this)
 
         val activity=(activity as MainActivity)
         activity.fragment=this
@@ -198,6 +198,7 @@ class NewSapatilhaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
             0
 
         )
+        mostraCategoriaSelecionadaSpinner()
     }
 
     override fun onLoaderReset(loader: Loader<Cursor>) {
