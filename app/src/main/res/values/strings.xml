@@ -35,6 +35,7 @@
 
     <string name="editar_sapatilha_label">Altere Sneaker</string>
     <string name="Eliminar_sapatilha_label">Delete Sneaker</string>
+    <string name="Aviso_Eliminar_sapatilha">Are you sure you want to delete the sneaker?</string>
 
 
 

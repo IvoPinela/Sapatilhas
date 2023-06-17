@@ -1,5 +1,6 @@
 package pt.ipg.sapatilhas
 
+import android.content.DialogInterface
 import android.net.Uri
 import android.os.Bundle
 import android.text.format.DateFormat
@@ -9,9 +10,11 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import pt.ipg.sapatilhas.databinding.FragmentEliminarSapatilhasBinding
+
 
 
 class EliminarSapatilhasFragment : Fragment() {
@@ -58,7 +61,14 @@ class EliminarSapatilhasFragment : Fragment() {
     fun processaOpcaoMenu(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_Delete -> {
-                eliminar()
+
+                val dialogoAlerta= AlertDialog.Builder(requireContext())
+                dialogoAlerta.setMessage(R.string.Aviso_Eliminar_sapatilha)
+                dialogoAlerta.setTitle(R.string.Eliminar_sapatilha_label)
+                dialogoAlerta.setPositiveButton(android.R.string.ok, DialogInterface.OnClickListener { dialogInterface, witch -> eliminar() })
+                dialogoAlerta.setNegativeButton(android.R.string.cancel, DialogInterface.OnClickListener { dialogInterface, witch ->voltaListaSapatilha() })
+                dialogoAlerta.show()
+
                 true
             }
             R.id.action_cancele -> {

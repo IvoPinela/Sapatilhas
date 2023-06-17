@@ -63,4 +63,5 @@
 
     <string name="editar_sapatilha_label">Alterar Sapatilha</string>
     <string name="Eliminar_sapatilha_label">Eliminar Sapatilha</string>
+    <string name="Aviso_Eliminar_sapatilha">Tem a certeza que quer eliminar a sapatilha?</string>
 </resources>
