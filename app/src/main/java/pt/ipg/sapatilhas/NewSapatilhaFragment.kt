@@ -100,15 +100,33 @@ class NewSapatilhaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
             binding.EditTextModel.requestFocus()
             return
         }
+        if(modelo.length>30){
+            binding.EditTextModel.error=getString(R.string.Aviso_Modelo)
+            binding.EditTextModel.requestFocus()
+            return
+        }
         val marcaid=binding.spinnerMarca.selectedItemId
 
         val cor=binding.EditTextColor.text.toString()
+
         if(cor.isBlank()){
             binding.EditTextColor.error=getString(R.string.RequestColor)
             binding.EditTextColor.requestFocus()
             return
         }
+
+        if(cor.length>30){
+            binding.EditTextColor.error=getString(R.string.Aviso_Cor)
+            binding.EditTextColor.requestFocus()
+            return
+        }
         val tamanho=binding.EditTextSize.text.toString()
+        if(tamanho.toString().toInt()>=100 || tamanho.toString().toInt()<=0){
+            binding.EditTextSize.error=getString(R.string.Aviso_Tamanho)
+            binding.EditTextSize.requestFocus()
+            return
+
+        }
         if(tamanho.isBlank()){
             binding.EditTextSize.error=getString(R.string.RequestSize)
             binding.EditTextSize.requestFocus()
@@ -116,6 +134,13 @@ class NewSapatilhaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
         }
 
         val SerialNumber=binding.EditTextSerialNumber.text.toString()
+
+        if(SerialNumber.length>6){
+            binding.EditTextSerialNumber.error=getString(R.string.Aviso_SerialNumber)
+            binding.EditTextSerialNumber.requestFocus()
+            return
+        }
+
         if(SerialNumber.isBlank()){
             binding.EditTextSerialNumber.error=getString(R.string.RequestSerialNumber)
             binding.EditTextSerialNumber.requestFocus()
