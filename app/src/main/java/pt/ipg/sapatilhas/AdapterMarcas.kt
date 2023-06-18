@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class AdapterMarcas: RecyclerView.Adapter<AdapterMarcas.ViewHolderMarca>() {
+class AdapterMarcas(val fragment: BrandListFragment): RecyclerView.Adapter<AdapterMarcas.ViewHolderMarca>() {
     var cursor: Cursor? = null
         set(value) {
             field = value
@@ -16,11 +16,13 @@ class AdapterMarcas: RecyclerView.Adapter<AdapterMarcas.ViewHolderMarca>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderMarca {
-        TODO("Not yet implemented")
+        return ViewHolderMarca(
+            fragment.layoutInflater.inflate(R.layout.item_marca, parent, false)
+        )
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return cursor?.count ?: 0
     }
 
     override fun onBindViewHolder(holder: ViewHolderMarca, position: Int) {
