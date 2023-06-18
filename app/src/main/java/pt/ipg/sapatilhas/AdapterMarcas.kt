@@ -3,6 +3,7 @@ package pt.ipg.sapatilhas
 import android.database.Cursor
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class AdapterMarcas(val fragment: BrandListFragment): RecyclerView.Adapter<AdapterMarcas.ViewHolderMarca>() {
@@ -11,8 +12,15 @@ class AdapterMarcas(val fragment: BrandListFragment): RecyclerView.Adapter<Adapt
             field = value
             notifyDataSetChanged()
         }
-    inner class ViewHolderMarca(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolderMarca(contentor: View) : RecyclerView.ViewHolder(contentor) {
+        private val textViewNomeMarca = contentor.findViewById<TextView>(R.id.textViewNomeMarca)
+        private val textViewSede = contentor.findViewById<TextView>(R.id.textViewSede)
             internal  var marca:Marca?=null
+                set(value) {
+                    field = value
+                    textViewNomeMarca.text = marca?.nome ?: ""
+                    textViewSede.text = marca?.sede ?: ""
+                }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderMarca {
