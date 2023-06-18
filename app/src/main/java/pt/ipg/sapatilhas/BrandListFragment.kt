@@ -13,6 +13,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import pt.ipg.sapatilhas.databinding.FragmentBrandListBinding
 
 private const val ID_LOADER_MARCA = 0
+private val adapterMarcas2: AdapterMarcas
+    get() {
+        val adapterMarcas = AdapterMarcas()
+        return adapterMarcas
+    }
 
 
 class BrandListFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
@@ -34,6 +39,7 @@ class BrandListFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
         _binding = FragmentBrandListBinding.inflate(inflater, container, false)
         return binding.root
     }
+    private val adapterMarcas = AdapterMarcas()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val adapterMarcas=AdapterMarcas()
@@ -57,10 +63,10 @@ class BrandListFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     }
 
     override fun onLoaderReset(loader: Loader<Cursor>) {
-        TODO("Not yet implemented")
+        adapterMarcas.cursor = null
     }
 
     override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
-        TODO("Not yet implemented")
+        adapterMarcas.cursor = data
     }
 }
