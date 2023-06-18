@@ -39,6 +39,9 @@ class MenuPrincipalFragment : Fragment() {
         binding.buttonSapatilhas.setOnClickListener {
             findNavController().navigate(R.id.action_MenuPrincipalFragment_to_SneakerListFragment)
         }
+        binding.buttonMarcas.setOnClickListener {
+            findNavController().navigate(R.id.action_MenuPrincipalFragment_to_brandListFragment)
+        }
         val activity=(activity as MainActivity)
         activity.fragment=this
         activity.idMenuAtual=R.menu.menu_main

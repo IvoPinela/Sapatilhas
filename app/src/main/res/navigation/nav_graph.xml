@@ -17,6 +17,9 @@
         <action
             android:id="@+id/action_MenuPrincipalFragment_to_SneakerListFragment"
             app:destination="@id/SneakerListFragment" />
+        <action
+            android:id="@+id/action_MenuPrincipalFragment_to_brandListFragment"
+            app:destination="@id/brandListFragment" />
     </fragment>
     <fragment
         android:id="@+id/SobreFragment"
@@ -69,5 +72,14 @@
         <argument
             android:name="sapatilha"
             app:argType="pt.ipg.sapatilhas.Sapatilha" />
+    </fragment>
+    <fragment
+        android:id="@+id/brandListFragment"
+        android:name="pt.ipg.sapatilhas.BrandListFragment"
+        android:label="fragment_brand_list"
+        tools:layout="@layout/fragment_brand_list" >
+        <action
+            android:id="@+id/action_brandListFragment_to_MenuPrincipalFragment"
+            app:destination="@id/MenuPrincipalFragment" />
     </fragment>
 </navigation>
