@@ -12,7 +12,7 @@ class AdapterMarcas(val fragment: BrandListFragment): RecyclerView.Adapter<Adapt
             notifyDataSetChanged()
         }
     inner class ViewHolderMarca(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
+            internal  var marca:Marca?=null
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderMarca {
@@ -26,6 +26,7 @@ class AdapterMarcas(val fragment: BrandListFragment): RecyclerView.Adapter<Adapt
     }
 
     override fun onBindViewHolder(holder: ViewHolderMarca, position: Int) {
-        TODO("Not yet implemented")
+        cursor!!.move(position)
+        holder.marca = Marca.fromCursor(cursor!!)
     }
 }
