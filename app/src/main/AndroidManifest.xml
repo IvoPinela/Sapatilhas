@@ -12,7 +12,7 @@
         android:theme="@style/Theme.Sapatilhas"
         tools:targetApi="31">
         <activity
-            android:name=".NewSapatilhaFragment2"
+            android:name=".NewSapatilhaFragment"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
@@ -30,6 +30,7 @@
             android:name=".SapatilhaContentProvider"
             android:authorities="pt.ipg.sapatilhas"
             android:exported="false" />
+
     </application>
 
 </manifest>

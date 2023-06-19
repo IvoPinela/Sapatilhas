@@ -18,6 +18,7 @@ class BrandListFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
 
     private var _binding: FragmentBrandListBinding?=null
     private  val binding get()=_binding!!
+    var marcaSelecionada : Marca?= null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,15 +38,21 @@ class BrandListFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
         super.onDestroyView()
         _binding = null
     }
-    private val adapterMarcas:AdapterMarcas?=null
+    private var adapterMarcas:AdapterMarcas?=null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val adapterMarcas=AdapterMarcas(this)
+         adapterMarcas=AdapterMarcas(this)
         binding.recyclerViewMarcas.adapter=adapterMarcas
         binding.recyclerViewMarcas.layoutManager= LinearLayoutManager(requireContext())
+
         val loader = LoaderManager.getInstance(this)
         loader.initLoader(ID_LOADER_MARCA, null, this)
+
+        val activity= activity as MainActivity
+        activity.fragment=this
+        activity.idMenuAtual=R.menu.menu_lista_sapatilhas
+
     }
     companion object {
 
