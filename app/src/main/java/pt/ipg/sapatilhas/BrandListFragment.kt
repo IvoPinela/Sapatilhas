@@ -21,6 +21,16 @@ class BrandListFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     private  val binding get()=_binding!!
     var marcaSelecionada : Marca?= null
 
+        set(value) {
+            field = value
+
+            val mostrarEliminarAlterar = (value != null)
+
+            val activity = activity as MainActivity
+            activity.mostraOpcaoMenu(R.id.action_Update, mostrarEliminarAlterar)
+            activity.mostraOpcaoMenu(R.id.action_Delete, mostrarEliminarAlterar)
+        }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
