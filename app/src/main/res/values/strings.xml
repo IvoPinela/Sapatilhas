@@ -24,9 +24,13 @@
     <string name="RequestModel">must fill modelo</string>
     <string name="RequestColor">must fill cor</string>
     <string name="RequestSize">must fill Size</string>
+    <string name="RequestNameBrand">must fill Name Brand</string>
+    <string name="RequestHeadOffice">must fill Head Office</string>
     <string name="RequestSerialNumber">must fill Serial Number</string>
     <string name="ErrorSapatilhaNew">Unable to store sneaker</string>
-    <string name="AcertSapatilhaNew">Able to store sneake</string>
+    <string name="AcertSapatilhaNew">Able to store sneaker</string>
+    <string name="ErrorBrandNew">Unable to store brand</string>
+    <string name="AcertBrandNew">Able to store brand</string>
     <string name="Teste1">Teste1</string>
     <string name="Sapatilha_eliminado_com_sucesso">Sneaker successfully deleted</string>
     <string name="erro_eliminar_Sapatilha">Error deleting sneaker</string>
@@ -40,6 +44,8 @@
     <string name="Aviso_SerialNumber">the Serial Number must be between 1 and 6 letter  </string>
     <string name="Aviso_Modelo">the model must be between 1 and 30 letter  </string>
     <string name="Aviso_Cor">the color must be between 1 and 30 letter  </string>
+    <string name="Aviso_NomeMarca">the Name Brand must be between 1 and 30 letter  </string>
+    <string name="Aviso_Sede">the head office must be between 1 and 30 letter  </string>
     <string name="AddBrand">Add Brand </string>
     <string name="NameBrand">Name Brand </string>
     <string name="headoffice">Head Office </string>

@@ -43,6 +43,9 @@
 
     <string name="AcertSapatilhaNew">Foi possível armazenar a sapatilha</string>
 
+    <string name="ErrorBrandNew">Não foi possível armazenar a  marca</string>
+    <string name="AcertBrandNew">Foi possível armazenar a marca</string>
+
     <string name="Teste1">Teste1</string>
 
     <string name="labelEliminar">Eliminar Sapatilha</string>
@@ -68,8 +71,12 @@
     <string name="Aviso_SerialNumber">o tamanho tem  de ter entre 1 e 6 letras</string>
     <string name="Aviso_Modelo">o modelo tem  de ter entre 1  e 30 letras </string>
     <string name="Aviso_Cor">a cor tem  de ter entre 1  e 30 letras  </string>
+    <string name="Aviso_NomeMarca">O nome da Marca tem  de ter entre 1  e 30 letras </string>
+    <string name="Aviso_Sede">A sede da Marca tem  de ter entre 1  e 30 letras </string>
     <string name="AddBrand">Adicionar Marca </string>
     <string name="NameBrand">Nome da Marca </string>
     <string name="headoffice">Sede </string>
+    <string name="RequestNameBrand">necessário empreencher o campo nome Marca </string>
+    <string name="RequestHeadOffice">necessário empreencher o campo sede Marca </string>
     Name Brand
 </resources>
