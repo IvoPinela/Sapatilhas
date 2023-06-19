@@ -84,14 +84,26 @@
         <action
             android:id="@+id/action_brandListFragment_to_newBrandFragment"
             app:destination="@id/newBrandFragment" />
+        <action
+            android:id="@+id/action_brandListFragment_to_eliminarMarcaFragment"
+            app:destination="@id/eliminarMarcaFragment" />
     </fragment>
     <fragment
         android:id="@+id/newBrandFragment"
         android:name="pt.ipg.sapatilhas.NewBrandFragment"
-        android:label="fragment_new_brand"
-        tools:layout="@layout/fragment_new_brand" >
+        android:label="@string/AddBrand"
+        tools:layout="@layout/fragment_new_brand">
         <action
             android:id="@+id/action_newBrandFragment_to_brandListFragment"
+            app:destination="@id/brandListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/eliminarMarcaFragment"
+        android:name="pt.ipg.sapatilhas.EliminarMarcaFragment"
+        android:label="fragment_eliminar_marca"
+        tools:layout="@layout/fragment_eliminar_marca" >
+        <action
+            android:id="@+id/action_eliminarMarcaFragment_to_brandListFragment"
             app:destination="@id/brandListFragment" />
     </fragment>
 </navigation>

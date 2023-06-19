@@ -40,6 +40,8 @@
     <string name="editar_sapatilha_label">Altere Sneaker</string>
     <string name="Eliminar_sapatilha_label">Delete Sneaker</string>
     <string name="Aviso_Eliminar_sapatilha">Are you sure you want to delete the sneaker?</string>
+    <string name="Eliminar_Marca_label">Delete Brand</string>
+    <string name="Aviso_Eliminar_Marca">Are you sure you want to delete the brand?</string>
     <string name="Aviso_Tamanho">the size must be between 0 and 100</string>
     <string name="Aviso_SerialNumber">the Serial Number must be between 1 and 6 letter  </string>
     <string name="Aviso_Modelo">the model must be between 1 and 30 letter  </string>
