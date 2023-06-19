@@ -71,6 +71,7 @@ class MainActivity : AppCompatActivity() {
             is EliminarSapatilhasFragment -> (fragment as EliminarSapatilhasFragment).processaOpcaoMenu(item)
             is BrandListFragment->(fragment as BrandListFragment).processaOpcaoMenu(item)
             is NewBrandFragment->(fragment as NewBrandFragment).processaOpcaoMenu(item)
+            is EliminarMarcaFragment->(fragment as EliminarMarcaFragment).processaOpcaoMenu(item)
             else -> false
         }
         return if (opcaoProcessada) {

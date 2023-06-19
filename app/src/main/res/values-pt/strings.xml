@@ -52,6 +52,8 @@
 
     <string name="Sapatilha_eliminado_com_sucesso">Sapatilha eliminada com sucesso</string>
     <string name="erro_eliminar_Sapatilha">Erro ao eliminar a sapatilha</string>
+    <string name="erro_eliminar_marca">Erro ao eliminar a marca</string>
+    <string name="marca_eliminadacomsucesso">Marca eliminada com sucesso</string>
     <string name="Sapatilha_alteradas_com_sucesso">Sapatilha alterada com sucesso</string>
     <string name="erro_alteradas_Sapatilha">Erro ao alterar sapatilha</string>
 

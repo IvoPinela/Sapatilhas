@@ -35,6 +35,8 @@
     <string name="Sapatilha_eliminado_com_sucesso">Sneaker successfully deleted</string>
     <string name="erro_eliminar_Sapatilha">Error deleting sneaker</string>
     <string name="Sapatilha_alteradas_com_sucesso">Sneaker successfully altere</string>
+    <string name="erro_eliminar_marca">Error deleting brand</string>
+    <string name="marca_eliminadacomsucesso">Brand successfully deleted</string>
     <string name="erro_alteradas_Sapatilha">Error altere sneaker</string>
 
     <string name="editar_sapatilha_label">Altere Sneaker</string>
