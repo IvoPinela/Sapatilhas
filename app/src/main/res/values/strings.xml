@@ -40,7 +40,9 @@
     <string name="Aviso_SerialNumber">the Serial Number must be between 1 and 6 letter  </string>
     <string name="Aviso_Modelo">the model must be between 1 and 30 letter  </string>
     <string name="Aviso_Cor">the color must be between 1 and 30 letter  </string>
-
+    <string name="AddBrand">Add Brand </string>
+    <string name="NameBrand">Name Brand </string>
+    <string name="headoffice">Head Office </string>
 
     <string name="Cancel">Cancel</string>
     <string name="Save">Save</string>

@@ -76,10 +76,22 @@
     <fragment
         android:id="@+id/brandListFragment"
         android:name="pt.ipg.sapatilhas.BrandListFragment"
-        android:label="fragment_brand_list"
-        tools:layout="@layout/fragment_brand_list" >
+        android:label="@string/Brand"
+        tools:layout="@layout/fragment_brand_list">
         <action
             android:id="@+id/action_brandListFragment_to_MenuPrincipalFragment"
             app:destination="@id/MenuPrincipalFragment" />
+        <action
+            android:id="@+id/action_brandListFragment_to_newBrandFragment"
+            app:destination="@id/newBrandFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newBrandFragment"
+        android:name="pt.ipg.sapatilhas.NewBrandFragment"
+        android:label="fragment_new_brand"
+        tools:layout="@layout/fragment_new_brand" >
+        <action
+            android:id="@+id/action_newBrandFragment_to_brandListFragment"
+            app:destination="@id/brandListFragment" />
     </fragment>
 </navigation>

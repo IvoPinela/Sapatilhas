@@ -68,4 +68,8 @@
     <string name="Aviso_SerialNumber">o tamanho tem  de ter entre 1 e 6 letras</string>
     <string name="Aviso_Modelo">o modelo tem  de ter entre 1  e 30 letras </string>
     <string name="Aviso_Cor">a cor tem  de ter entre 1  e 30 letras  </string>
+    <string name="AddBrand">Adicionar Marca </string>
+    <string name="NameBrand">Nome da Marca </string>
+    <string name="headoffice">Sede </string>
+    Name Brand
 </resources>
