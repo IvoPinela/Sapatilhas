@@ -39,14 +39,18 @@ class NewBrandFragment : Fragment() {
         activity.idMenuAtual = R.menu.menu_guardar_cancelar
 
         val marca = NewBrandFragmentArgs.fromBundle(requireArguments()).marca
-        binding.textViewaddorUpdate.setText(R.string.editar_marca_label)
+
         if (marca != null) {
             activity.atualizaTitulo(R.string.editar_marca_label)
-
+            binding.textViewaddorUpdate.setText(R.string.editar_marca_label)
             binding.TextInputEditTextNameBrand.setText(marca.nome)
             binding.TextInputEditTextHeadOffice.setText(marca.sede)
-            binding.textViewaddorUpdate.setText(R.string.AddBrand)
 
+
+        }else {
+            activity.atualizaTitulo(R.string.New_Sneaker_Label)
+
+            binding.textViewaddorUpdate.setText(R.string.AddBrand)
         }
         this.marca = marca
     }
