@@ -90,11 +90,13 @@ class BrandListFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     }
 
     private fun editarMarca() {
-
+        val acao = BrandListFragmentDirections.actionBrandListFragmentToNewBrandFragment(marcaSelecionada!!)
+        findNavController().navigate(acao)
     }
 
     private fun adicionaMarca() {
-        findNavController().navigate(R.id.action_brandListFragment_to_newBrandFragment)
+        val acao = BrandListFragmentDirections.actionBrandListFragmentToNewBrandFragment(null)
+        findNavController().navigate(acao)
     }
     companion object {
 

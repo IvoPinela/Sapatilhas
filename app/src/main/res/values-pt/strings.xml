@@ -47,7 +47,7 @@
     <string name="AcertBrandNew">Foi possível armazenar a marca</string>
 
     <string name="Teste1">Teste1</string>
-
+    <string name="Marca_alteradas_com_sucesso">Marca alterada com sucesso</string>
     <string name="labelEliminar">Eliminar Sapatilha</string>
 
     <string name="Sapatilha_eliminado_com_sucesso">Sapatilha eliminada com sucesso</string>
@@ -56,7 +56,7 @@
     <string name="marca_eliminadacomsucesso">Marca eliminada com sucesso</string>
     <string name="Sapatilha_alteradas_com_sucesso">Sapatilha alterada com sucesso</string>
     <string name="erro_alteradas_Sapatilha">Erro ao alterar sapatilha</string>
-
+    <string name="editar_marca_label">Alterar Marca</string>
     <string name="Cancel">Cancelar</string>
     <string name="Save">Salvar</string>
 

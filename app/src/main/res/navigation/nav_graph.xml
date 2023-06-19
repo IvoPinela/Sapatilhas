@@ -96,6 +96,10 @@
         <action
             android:id="@+id/action_newBrandFragment_to_brandListFragment"
             app:destination="@id/brandListFragment" />
+        <argument
+            android:name="marca"
+            app:argType="pt.ipg.sapatilhas.Marca"
+            app:nullable="true" />
     </fragment>
     <fragment
         android:id="@+id/eliminarMarcaFragment"
