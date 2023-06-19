@@ -4,6 +4,7 @@ import android.database.Cursor
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.loader.app.LoaderManager
@@ -52,6 +53,35 @@ class BrandListFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
         val activity= activity as MainActivity
         activity.fragment=this
         activity.idMenuAtual=R.menu.menu_lista_sapatilhas
+
+    }
+    fun processaOpcaoMenu(item: MenuItem) : Boolean {
+        return when (item.itemId) {
+            R.id.action_Add -> {
+                adicionaMarca()
+                true
+            }
+            R.id.action_Update -> {
+                editarMarca()
+                true
+            }
+            R.id.action_Delete -> {
+                eliminarMarca()
+                true
+            }
+            else -> false
+        }
+    }
+
+    private fun eliminarMarca() {
+
+    }
+
+    private fun editarMarca() {
+
+    }
+
+    private fun adicionaMarca() {
 
     }
     companion object {
