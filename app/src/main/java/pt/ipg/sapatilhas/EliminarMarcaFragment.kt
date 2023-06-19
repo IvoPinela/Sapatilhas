@@ -2,6 +2,7 @@ package pt.ipg.sapatilhas
 
 import android.content.DialogInterface
 import android.os.Bundle
+import android.text.format.DateFormat
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -9,15 +10,22 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.navigation.fragment.findNavController
+import pt.ipg.sapatilhas.NewSapatilhaFragmentArgs.Companion.fromBundle
 import pt.ipg.sapatilhas.databinding.FragmentEliminarMarcaBinding
 
 
 class EliminarMarcaFragment : Fragment() {
+    private lateinit var marca: Marca
     private var _binding: FragmentEliminarMarcaBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        marca = EliminarMarcaFragmentArgs.fromBundle(requireArguments()).marca
+
+        binding.textViewNomemarca.text = marca.nome
+        binding.textViewHeadOffice.text = marca.sede
 
     }
 
